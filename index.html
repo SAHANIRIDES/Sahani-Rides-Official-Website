@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
   <title>Sahani Rides - Commission Calculator</title>
   <style>
@@ -86,28 +85,15 @@
     th { background-color: #e0f0ff; }
   </style>
 </head>
-<body>
-
-<div class="page">
+<body><div class="page">
   <h1>Sahani Rides</h1>
-  <p style="text-align:center;"><em>Transparent. Fair. Made for Real Drivers.</em></p>
+  <p style="text-align:center;"><em>Transparent. Fair. Made for Real Drivers.</em></p><label for="vehicle">Select Vehicle Type:</label> <select id="vehicle"> <option value="car">Sahani Cabs</option> <option value="auto">Sahani Auto</option> <option value="bike">Sahani Moto</option> </select>
 
-  <label for="vehicle">Select Vehicle Type:</label>
-  <select id="vehicle">
-    <option value="car">Car</option>
-    <option value="auto">Auto</option>
-    <option value="bike">Bike</option>
-  </select>
+<label for="rides">Enter Total Rides Completed:</label> <input type="number" id="rides" placeholder="e.g. 160">
 
-  <label for="rides">Enter Total Rides Completed:</label>
-  <input type="number" id="rides" placeholder="e.g. 160">
+<button onclick="calculateCommission()">Check My Level</button>
 
-  <button onclick="calculateCommission()">Check My Level</button>
-
-  <div class="result" id="output"></div>
-
-  <!-- 📊 Dynamic Commission Chart -->
-  <div id="chart" style="margin-top:30px; background:#f9f9f9; padding:15px; border-radius:10px; display:none;">
+  <div class="result" id="output"></div>  <!-- 📊 Dynamic Commission Chart -->  <div id="chart" style="margin-top:30px; background:#f9f9f9; padding:15px; border-radius:10px; display:none;">
     <h3 style="text-align:center; color:#1e4eb0;">Commission Chart</h3>
     <table>
       <thead>
@@ -119,72 +105,70 @@
       </thead>
       <tbody id="chartBody"></tbody>
     </table>
-  </div>
-
-  <!-- 📝 Join Form -->
-  <div style="text-align: center; margin-top: 30px;">
+  </div>  <!-- 📝 Join Form -->  <div style="text-align: center; margin-top: 30px;">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=header" target="_blank">
       <button style="background:#0a6b2d;">🚀 Join Our Driver Team Now</button>
     </a>
-  </div>
-
-  <!-- 👤 Founder Info -->
-  <div class="footer">
+  </div>  <!-- 👤 Founder Info -->  <div class="footer">
     <img src="https://i.postimg.cc/43ght0TF/20250601-103214.jpg" alt="Founder">
     <strong>Ansh Sahani</strong>
     <span style="font-size:14px;">Founder – Sahani Rides</span>
-  </div>
-
-  <!-- 📱 Social -->
-  <div class="social-buttons">
+  </div>  <!-- 📱 Social -->  <div class="social-buttons">
     <a class="whatsapp" href="https://wa.me/917206933309" target="_blank">Chat on WhatsApp</a>
     <a class="instagram" href="https://www.instagram.com/anshsahani771?igsh=MThndWs0YWVtZ3Ridw==" target="_blank">Follow on Instagram</a>
   </div>
-</div>
-
-<script>
+</div><script>
   function calculateCommission() {
     const vehicle = document.getElementById("vehicle").value;
     const rides = parseInt(document.getElementById("rides").value);
     let commission = 0;
     let level = "";
+    let chartData = [];
 
     if (vehicle === "car") {
-      if (rides <= 50) {
-        commission = 29.4; level = "Level 1";
-      } else if (rides <= 150) {
-        commission = 24.9; level = "Level 2";
-      } else if (rides <= 300) {
-        commission = 18.8; level = "Level 3";
-      } else if (rides <= 500) {
-        commission = 13.3; level = "Level 4";
-      } else {
-        commission = 7.7; level = "Level 5";
-      }
+      if (rides <= 49) { commission = 19.9; level = "Level 1"; }
+      else if (rides <= 70) { commission = 15.5; level = "Level 2"; }
+      else if (rides <= 130) { commission = 11.8; level = "Level 3"; }
+      else if (rides <= 200) { commission = 9.9; level = "Level 4"; }
+      else { commission = 6.8; level = "Level 5 (Elite)"; }
+
+      chartData = [
+        ["Level 1", "0–49", "19.9%"],
+        ["Level 2", "50–70", "15.5%"],
+        ["Level 3", "71–130", "11.8%"],
+        ["Level 4", "131–200", "9.9%"],
+        ["Level 5", "201–349+", "6.8%"]
+      ];
+
     } else if (vehicle === "auto") {
-      if (rides <= 60) {
-        commission = 26.4; level = "Level 1";
-      } else if (rides <= 180) {
-        commission = 21.9; level = "Level 2";
-      } else if (rides <= 360) {
-        commission = 16.8; level = "Level 3";
-      } else if (rides <= 600) {
-        commission = 11.3; level = "Level 4";
-      } else {
-        commission = 6.7; level = "Level 5";
-      }
+      if (rides <= 50) { commission = 19.9; level = "Level 1"; }
+      else if (rides <= 160) { commission = 16.9; level = "Level 2"; }
+      else if (rides <= 300) { commission = 12.9; level = "Level 3"; }
+      else if (rides <= 440) { commission = 9.9; level = "Level 4"; }
+      else { commission = 7.2; level = "Level 5 (Elite)"; }
+
+      chartData = [
+        ["Level 1", "0–50", "19.9%"],
+        ["Level 2", "51–160", "16.9%"],
+        ["Level 3", "161–300", "12.9%"],
+        ["Level 4", "301–440", "9.9%"],
+        ["Level 5", "441+", "7.2%"]
+      ];
+
     } else if (vehicle === "bike") {
-      if (rides <= 80) {
-        commission = 24.4; level = "Level 1";
-      } else if (rides <= 200) {
-        commission = 19.9; level = "Level 2";
-      } else if (rides <= 400) {
-        commission = 14.8; level = "Level 3";
-      } else if (rides <= 700) {
-        commission = 10.3; level = "Level 4";
-      } else {
-        commission = 5.7; level = "Level 5";
-      }
+      if (rides <= 50) { commission = 19.9; level = "Starter"; }
+      else if (rides <= 160) { commission = 17.9; level = "Learner"; }
+      else if (rides <= 320) { commission = 13.9; level = "Skilled"; }
+      else if (rides <= 460) { commission = 9.9; level = "Reliable"; }
+      else { commission = 7.8; level = "Elite (🥇)"; }
+
+      chartData = [
+        ["Starter", "0–50", "19.9%"],
+        ["Learner", "51–160", "17.9%"],
+        ["Skilled", "161–320", "13.9%"],
+        ["Reliable", "321–460", "9.9%"],
+        ["Elite", "461+", "7.8%"]
+      ];
     }
 
     document.getElementById("output").innerHTML =
@@ -192,41 +176,13 @@
       `Your current level is <strong>${level}</strong><br>` +
       `Your commission rate is <strong>${commission}%</strong>`;
 
-    // Chart Show
+    // Update chart
     const chart = document.getElementById("chart");
     const chartBody = document.getElementById("chartBody");
     chart.style.display = "block";
     chartBody.innerHTML = "";
 
-    let levels = [];
-
-    if (vehicle === "car") {
-      levels = [
-        ["Level 1", "0–50", "29.4%"],
-        ["Level 2", "51–150", "24.9%"],
-        ["Level 3", "151–300", "18.8%"],
-        ["Level 4", "301–500", "13.3%"],
-        ["Level 5", "501+", "7.7%"]
-      ];
-    } else if (vehicle === "auto") {
-      levels = [
-        ["Level 1", "0–60", "26.4%"],
-        ["Level 2", "61–180", "21.9%"],
-        ["Level 3", "181–360", "16.8%"],
-        ["Level 4", "361–600", "11.3%"],
-        ["Level 5", "601+", "6.7%"]
-      ];
-    } else if (vehicle === "bike") {
-      levels = [
-        ["Level 1", "0–80", "24.4%"],
-        ["Level 2", "81–200", "19.9%"],
-        ["Level 3", "201–400", "14.8%"],
-        ["Level 4", "401–700", "10.3%"],
-        ["Level 5", "701+", "5.7%"]
-      ];
-    }
-
-    levels.forEach(row => {
+    chartData.forEach(row => {
       const tr = document.createElement("tr");
       row.forEach(cell => {
         const td = document.createElement("td");
@@ -236,7 +192,5 @@
       chartBody.appendChild(tr);
     });
   }
-</script>
-
-</body>
+</script></body>
 </html>
