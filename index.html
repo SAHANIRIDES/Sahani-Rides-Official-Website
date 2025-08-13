@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sahani Rides - Commission Calculator</title>
   <style>
     body {
@@ -84,33 +84,132 @@
       font-weight: bold;
       color: white;
     }
-    .whatsapp {
-      background-color: #25D366;
+    .whatsapp { background-color: #25D366; }
+    .instagram { background-color: #E1306C; }
+    .driver-btn { background-color: #1e4eb0; margin-top: 10px; }
+
+    /* Top oval buttons */
+    .top-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
     }
-    .instagram {
-      background-color: #E1306C;
-    }
-    .driver-btn {
+    .top-buttons button {
       background-color: #1e4eb0;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px; /* oval */
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      min-width: 110px;
+      transition: background-color 0.3s ease;
+    }
+    .top-buttons button:hover { background-color: #154090; }
+
+    /* Sections */
+    #driver-section, #real-rides-section, #ride-logic-section {
+      margin-top: 40px;
+      display: none;
+    }
+
+    /* Driver list (OVAL CARDS) */
+    .driver-details-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .driver-oval {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      border-radius: 999px;           /* oval */
+      background: linear-gradient(180deg, #fbfdff, #f0f6ff);
+      border: 2px solid rgba(30, 78, 176, 0.15);
+      box-shadow: 0 6px 18px rgba(30, 78, 176, 0.06);
+    }
+    .driver-badge {
+      background: #1e4eb0;
+      color: #fff;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+    .driver-lines { line-height: 1.25; }
+    .driver-name { font-weight: 900; color: #1e4eb0; font-size: 14px; }
+    .driver-line { font-size: 12px; color: #154090; }
+    .driver-level { font-weight: 800; color: #154090; }
+    .driver-time { font-size: 11px; color: #456; }
+
+    /* Blur sensitive info */
+    .blurred {
+      filter: blur(5px);
+      user-select: none;
+      letter-spacing: 2px;
+      display: inline-block;
+    }
+
+    /* Commission Chart */
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background-color: #e0f0ff; }
+
+    /* Real rides & Ride logic content */
+    #real-rides-section p, #ride-logic-section p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #1e4eb0;
+    }
+    #ride-logic-section figure { margin:16px 0; text-align:center; }
+    #ride-logic-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
       margin-top: 10px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
+    .card-copy {
+      background:#f7fbff;
+      border:1px solid #dfeaff;
+      border-radius:12px;
+      padding:14px;
+      color:#1b2c48;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
+    .card-copy h3 { margin:6px 0 10px; color:#1e4eb0; }
+    .card-copy p { margin:0 0 10px; line-height:1.55; }
+    .card-copy ul { margin:0 0 10px; padding-left:18px; line-height:1.55; }
+    blockquote {
+      margin:8px 0 0;
+      padding-left:12px;
+      border-left:4px solid #1e4eb0;
+      color:#223;
+      font-style: italic;
+    }
+
+    /* Status note */
+    .status-note {
       text-align: center;
-    }
-    th {
-      background-color: #e0f0ff;
+      font-size: 12px;
+      color: #456;
+      margin: 10px 0 0;
     }
   </style>
 </head>
 <body>
   <div class="page">
+    <!-- Top buttons -->
+    <div class="top-buttons">
+      <button id="btn-driver">Driver Section</button>
+      <button id="btn-real-rides">Real Rides</button>
+      <button id="btn-ride-logic">Ride Logic</button>
+    </div>
+
     <h1>Sahani Rides</h1>
     <h2>Transparent. Fair. Made for Real Drivers. <br><em>(Pilot Phase)</em></h2>
 
@@ -123,7 +222,6 @@
 
     <label for="rides">Enter Total KM Completed:</label>
     <input type="number" id="rides" placeholder="e.g. 150 KM" />
-
     <button onclick="calculateCommission()">Check My Level</button>
 
     <div class="result" id="output"></div>
@@ -138,9 +236,72 @@
       </table>
     </div>
 
+    <!-- Driver Section -->
+    <div id="driver-section">
+      <h2 style="text-align:center; color:#1e4eb0; margin-bottom:10px;">Driver Section</h2>
+      <p style="text-align:center; margin-bottom:16px;">
+        Join our driver team by filling the form: 
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" target="_blank" style="color:#1e4eb0; font-weight:700; text-decoration:underline;">
+          Google Driver Form
+        </a>
+      </p>
+
+      <div id="driverSummary" class="status-note">Loading drivers…</div>
+      <div class="driver-details-container" id="driverContainer"></div>
+      <div id="driverStatus" class="status-note"></div>
+    </div>
+
+    <!-- Real Rides Section -->
+    <div id="real-rides-section">
+      <h2 style="color:#1e4eb0; text-align:center;">Real Rides</h2>
+      <p>Coming Soon! Stay tuned for updates.</p>
+    </div>
+
+    <!-- Ride Logic Section -->
+    <div id="ride-logic-section">
+      <h2 style="color:#1e4eb0; text-align:center;">Ride Logic</h2>
+
+      <!-- Big, clear invoice image -->
+      <figure>
+        <img
+          id="invoice-img"
+          src="https://i.postimg.cc/xTgDvv01/IMG-20250805-WA0006.jpg"
+          alt="Sahani Rides – Example invoice (Passenger + Driver views)"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        />
+        <figcaption style="font-size:12px;color:#456;margin-top:8px">
+          Example invoice – Passenger copy & Driver payout copy
+        </figcaption>
+      </figure>
+
+      <!-- Explainer copy (separate under image) -->
+      <div class="card-copy">
+        <h3>The Hostel Reality</h3>
+        <p>
+          The fare might show <strong>₹600</strong>, but the driver ends up asking for more. It’s not always the driver’s fault — many platforms take huge commissions.
+        </p>
+        <p style="margin-bottom:6px;">One driver told me himself:</p>
+        <blockquote>“Out of ₹600, the company keeps ₹200, I get ₹400, and ₹100 goes into petrol.”</blockquote>
+        <p style="margin-top:8px;">
+          The customer thinks the driver is overcharging, the driver feels misunderstood, and the company quietly takes its cut from both.
+        </p>
+
+        <h3 style="margin-top:14px;">How Sahani’s Pilot Phase Fixes It</h3>
+        <p>In Sahani’s test phase, the customer and driver can openly adjust the fare together — no hidden amounts. Both instantly get a clear invoice:</p>
+        <ul>
+          <li><strong>Passenger’s copy</strong> shows the final fare and rewards earned.</li>
+          <li><strong>Driver’s copy</strong> shows platform fee, fuel cost, and net payout.</li>
+        </ul>
+        <p style="margin:0;">
+          If this trial works, we’ll make it faster, smoother, and roll it out to the real world — keeping trust between passengers and drivers intact from day one.
+        </p>
+      </div>
+    </div>
+
     <div class="footer">
-      <img src="https://i.postimg.cc/k5vB34mH/Screenshot-20250728-170952-Chrome.jpg" alt="Ansh Sahani">
-      <strong>Ansh Sahani<br>Founder – Sahani Rides</strong>
+      <img src="https://i.postimg.cc/k5vB34mH/Screenshot-20250728-170952-Chrome.jpg" alt="Ansh Sahani" />
+      <strong>Ansh Sahani<br />Founder – Sahani Rides</strong>
       <div class="social-buttons">
         <a href="https://wa.me/917206933309" class="whatsapp" target="_blank">Chat on WhatsApp</a>
         <a href="https://instagram.com/anshsahani771" class="instagram" target="_blank">Follow on Instagram</a>
@@ -150,6 +311,7 @@
   </div>
 
   <script>
+    /* ---------------- Commission Calculator (your existing logic) ---------------- */
     function calculateCommission() {
       const vehicle = document.getElementById("vehicle").value;
       const rides = parseInt(document.getElementById("rides").value);
@@ -158,61 +320,43 @@
       let chartData = [];
 
       if (vehicle === "car") {
-        if (rides <= 249) {
-          commission = 19.9; level = "Level 1";
-        } else if (rides <= 499) {
-          commission = 17.9; level = "Level 2";
-        } else if (rides <= 749) {
-          commission = 15.9; level = "Level 3";
-        } else if (rides <= 999) {
-          commission = 11.9; level = "Level 4";
-        } else {
-          commission = 7.9; level = "Level 5";
-        }
+        if (rides <= 249) { commission = 19.9; level = "Level 1";
+        } else if (rides <= 499) { commission = 17.9; level = "Level 2";
+        } else if (rides <= 749) { commission = 15.9; level = "Level 3";
+        } else if (rides <= 999) { commission = 11.9; level = "Level 4";
+        } else { commission = 7.9; level = "Level 5"; }
         chartData = [
           ["Level 1", "0–249 KM", "19.9%"],
           ["Level 2", "250–499 KM", "17.9%"],
           ["Level 3", "500–749 KM", "15.9%"],
           ["Level 4", "750–999 KM", "11.9%"],
-          ["Level 5", "1000+ KM", "7.9%"]
+          ["Level 5", "1000+ KM", "7.9%"],
         ];
       } else if (vehicle === "auto") {
-        if (rides <= 149) {
-          commission = 19.9; level = "Level 1";
-        } else if (rides <= 349) {
-          commission = 15.9; level = "Level 2";
-        } else if (rides <= 599) {
-          commission = 13.3; level = "Level 3";
-        } else if (rides <= 849) {
-          commission = 10.3; level = "Level 4";
-        } else {
-          commission = 8.3; level = "Level 5";
-        }
+        if (rides <= 149) { commission = 19.9; level = "Level 1";
+        } else if (rides <= 349) { commission = 15.9; level = "Level 2";
+        } else if (rides <= 599) { commission = 13.3; level = "Level 3";
+        } else if (rides <= 849) { commission = 10.3; level = "Level 4";
+        } else { commission = 8.3; level = "Level 5"; }
         chartData = [
           ["Level 1", "0–149 KM", "19.9%"],
           ["Level 2", "150–349 KM", "15.9%"],
           ["Level 3", "350–599 KM", "13.3%"],
           ["Level 4", "600–849 KM", "10.3%"],
-          ["Level 5", "850+ KM", "8.3%"]
+          ["Level 5", "850+ KM", "8.3%"],
         ];
       } else if (vehicle === "bike") {
-        if (rides <= 149) {
-          commission = 19.9; level = "Level 1";
-        } else if (rides <= 349) {
-          commission = 15.9; level = "Level 2";
-        } else if (rides <= 599) {
-          commission = 13.9; level = "Level 3";
-        } else if (rides <= 849) {
-          commission = 10.9; level = "Level 4";
-        } else {
-          commission = 8.6; level = "Level 5";
-        }
+        if (rides <= 149) { commission = 19.9; level = "Level 1";
+        } else if (rides <= 349) { commission = 15.9; level = "Level 2";
+        } else if (rides <= 599) { commission = 13.9; level = "Level 3";
+        } else if (rides <= 849) { commission = 10.9; level = "Level 4";
+        } else { commission = 8.6; level = "Level 5"; }
         chartData = [
           ["Level 1", "0–149 KM", "19.9%"],
           ["Level 2", "150–349 KM", "15.9%"],
           ["Level 3", "350–599 KM", "13.9%"],
           ["Level 4", "600–849 KM", "10.9%"],
-          ["Level 5", "850+ KM", "8.6%"]
+          ["Level 5", "850+ KM", "8.6%"],
         ];
       }
 
@@ -225,9 +369,9 @@
       const chartBody = document.getElementById("chartBody");
       chart.style.display = "block";
       chartBody.innerHTML = "";
-      chartData.forEach(row => {
+      chartData.forEach((row) => {
         const tr = document.createElement("tr");
-        row.forEach(cell => {
+        row.forEach((cell) => {
           const td = document.createElement("td");
           td.textContent = cell;
           tr.appendChild(td);
@@ -235,6 +379,132 @@
         chartBody.appendChild(tr);
       });
     }
+
+    /* ---------------- Section Switchers ---------------- */
+    function hideAllSections() {
+      document.getElementById("driver-section").style.display = "none";
+      document.getElementById("real-rides-section").style.display = "none";
+      document.getElementById("ride-logic-section").style.display = "none";
+    }
+    document.getElementById("btn-driver").addEventListener("click", () => {
+      hideAllSections();
+      document.getElementById("driver-section").style.display = "block";
+      window.scrollTo({ top: document.getElementById("driver-section").offsetTop - 30, behavior: "smooth" });
+      if (!window.__driversLoadedOnce) { loadDrivers(); window.__driversLoadedOnce = true; }
+    });
+    document.getElementById("btn-real-rides").addEventListener("click", () => {
+      hideAllSections();
+      document.getElementById("real-rides-section").style.display = "block";
+      window.scrollTo({ top: document.getElementById("real-rides-section").offsetTop - 30, behavior: "smooth" });
+    });
+    document.getElementById("btn-ride-logic").addEventListener("click", () => {
+      hideAllSections();
+      document.getElementById("ride-logic-section").style.display = "block";
+      window.scrollTo({ top: document.getElementById("ride-logic-section").offsetTop - 30, behavior: "smooth" });
+    });
+
+    /* ---------------- LIVE DRIVERS (from your CSV link) ---------------- */
+    const SHEET_CSV_URL =
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYbWyqmpkGVg098hhriuQ74toMrmD6G4pJ62ciB1GAVy1ltsZSrCkrK8UYhcS1TETotnN_FgCO8gNV/pub?gid=2020961533&single=true&output=csv";
+
+    const REFRESH_MS = 60000; // 60s
+
+    const $ = (sel) => document.querySelector(sel);
+    const clean = (s) => (s || "").trim().replace(/^"|"$/g, "");
+    function splitCsvRow(row) {
+      const out = []; let cur = ""; let q = false;
+      for (let i = 0; i < row.length; i++) {
+        const c = row[i];
+        if (c === '"') { q = !q; continue; }
+        if (c === "," && !q) { out.push(cur); cur = ""; continue; }
+        cur += c;
+      }
+      out.push(cur);
+      return out;
+    }
+    function maskMiddle(v) {
+      v = (v || "").trim(); if (!v) return "";
+      const len = v.length; if (len <= 4) return "*".repeat(len);
+      const start = Math.min(3, Math.max(1, Math.floor(len * 0.25)));
+      const end = Math.min(2, Math.floor(len * 0.2));
+      return v.slice(0, start) + "*".repeat(Math.max(1, len - (start + end))) + v.slice(len - end);
+    }
+    function esc(s){ return (s||"").toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+    async function fetchCsv() {
+      const statusEl = $("#driverStatus");
+      statusEl.textContent = "Loading…";
+      const t0 = performance.now();
+      const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error("Fetch failed — check CSV publish link.");
+      const txt = await res.text();
+      const rows = txt.trim().split(/\r?\n/);
+      if (rows.length <= 1) throw new Error("CSV has no data rows.");
+
+      const header = splitCsvRow(rows[0]).map(h => h.trim().toLowerCase());
+      const idx = {
+        time:   header.findIndex(h => /time|timestamp/.test(h)),
+        name:   header.findIndex(h => /name|full\s*name/.test(h)),
+        phone:  header.findIndex(h => /phone|mobile|contact/.test(h)),
+        vehicle:header.findIndex(h => /vehicle|reg|registration|number|plate|vehicle\s*no/.test(h)),
+        level:  header.findIndex(h => /level|tier|rank/.test(h)),
+      };
+
+      const data = [];
+      for (let i = 1; i < rows.length; i++) {
+        const cols = splitCsvRow(rows[i]).map(clean);
+        data.push({
+          time:    idx.time   > -1 ? cols[idx.time]    : "",
+          name:    idx.name   > -1 ? cols[idx.name]    : "",
+          phone:   idx.phone  > -1 ? cols[idx.phone]   : "",
+          vehicle: idx.vehicle> -1 ? cols[idx.vehicle] : "",
+          level:   idx.level  > -1 ? cols[idx.level]   : ""
+        });
+      }
+
+      // newest first (if timestamp exists)
+      if (idx.time > -1) {
+        data.sort((a, b) => (new Date(b.time)) - (new Date(a.time)));
+      }
+
+      renderDrivers(data);
+
+      const t1 = performance.now();
+      statusEl.textContent = `Loaded ${data.length} drivers in ${(t1 - t0 | 0)} ms. Auto-refresh ${REFRESH_MS/1000}s.`;
+    }
+
+    function renderDrivers(data) {
+      const container = $("#driverContainer");
+      const summary = $("#driverSummary");
+      container.innerHTML = "";
+      summary.textContent = `Total drivers: ${data.length}`;
+
+      data.forEach((d, i) => {
+        const box = document.createElement("div");
+        box.className = "driver-oval";
+        box.innerHTML = `
+          <div class="driver-badge">Driver ${i + 1}</div>
+          <div class="driver-lines">
+            <div class="driver-name">${esc(d.name || "—")} <span class="driver-level">• ${esc(d.level || "Level ?")}</span></div>
+            <div class="driver-line">Phone: <span class="blurred">${esc(maskMiddle(d.phone))}</span></div>
+            <div class="driver-line">Vehicle: <span class="blurred">${esc(maskMiddle(d.vehicle))}</span></div>
+            <div class="driver-time">${esc(d.time || "")}</div>
+          </div>
+        `;
+        container.appendChild(box);
+      });
+    }
+
+    async function loadDrivers(){
+      try { await fetchCsv(); }
+      catch (e) { $("#driverStatus").textContent = e.message || "Failed to load drivers."; }
+    }
+
+    // Auto-refresh every 60s while the page is open (only when driver section visible)
+    setInterval(() => {
+      const visible = document.getElementById("driver-section").style.display !== "none";
+      if (visible) loadDrivers();
+    }, REFRESH_MS);
   </script>
 </body>
 </html>
