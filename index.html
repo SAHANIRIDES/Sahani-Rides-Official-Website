@@ -1,237 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ====== Basics ====== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sahani Rides - Official Website </title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4faff;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
-    .page {
-      padding: 30px;
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      min-height: 100vh;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
-    h1, h2 {
-      color: #1e4eb0;
-      text-align: center;
-    }
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: bold;
-    }
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #1e4eb0;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .result {
-      background: #e0f4ff;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 6px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .footer img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top;
-      background-color: white;
-      padding: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 10px;
-    }
-    .footer strong {
-      display: block;
-      font-size: 16px;
-      margin-top: 5px;
-    }
-    .social-buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .social-buttons a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      color: white;
-    }
-    .whatsapp { background-color: #25D366; }
-    .instagram { background-color: #E1306C; }
-    .facebook { background-color: #1877F2; }
-    .x-btn { background-color: #000000; }
-    .linkedin { background-color: #0077B5; }
-    .driver-btn { background-color: #1e4eb0; margin-top: 10px; }
 
-    /* Top oval buttons */
-    .top-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
+  <!-- ====== SEO: Brand-first ====== -->
+  <title>Sahani Rides — Official Site | Safe, Transparent Ride-Hailing</title>
+  <meta name="description" content="Sahani Rides is an Indian ride-hailing startup founded in 2025 in Chennai by Ansh Sahani. Safe, transparent fares and driver-friendly commissions for cabs, autos and bikes." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://sahanirides.com/" />
+
+  <!-- Identity/ownership helpers -->
+  <link rel="me" href="https://x.com/SahaniRides">
+  <link rel="me" href="https://instagram.com/sahanirides">
+  <link rel="me" href="https://www.linkedin.com/in/ansh-sahani-575a29295">
+  <link rel="me" href="https://www.facebook.com/share/1H3z1WDBpn/">
+  <link rel="author" href="https://www.linkedin.com/in/ansh-sahani-575a29295">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sahani Rides — Official Site">
+  <meta property="og:description" content="Safe, transparent, driver-friendly ride-hailing from Chennai, India.">
+  <meta property="og:url" content="https://sahanirides.com/">
+  <meta property="og:image" content="https://sahanirides.com/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sahani Rides — Official Site">
+  <meta name="twitter:description" content="Safe, transparent, driver-friendly ride-hailing from Chennai, India.">
+  <meta name="twitter:image" content="https://sahanirides.com/logo.png">
+
+  <!-- (Optional) icons if you have these files at repo root -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- ====== ENTITY GRAPH: Person + Organization + Website (joined via @id) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://sahanirides.com/#ansh-sahani",
+        "name": "Ansh Sahani",
+        "jobTitle": "Founder",
+        "url": "https://sahanirides.com/",
+        "worksFor": { "@id": "https://sahanirides.com/#organization" },
+        "sameAs": [
+          "https://instagram.com/sahanirides",
+          "https://x.com/SahaniRides",
+          "https://www.linkedin.com/in/ansh-sahani-575a29295",
+          "https://www.facebook.com/share/1H3z1WDBpn/"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://sahanirides.com/#organization",
+        "name": "Sahani Rides",
+        "url": "https://sahanirides.com/",
+        "logo": "https://sahanirides.com/logo.png",
+        "foundingDate": "2025",
+        "foundingLocation": "Chennai, Tamil Nadu, India",
+        "founder": { "@id": "https://sahanirides.com/#ansh-sahani" },
+        "sameAs": [
+          "https://sahanirides.com/",
+          "https://instagram.com/sahanirides",
+          "https://x.com/SahaniRides",
+          "https://www.linkedin.com/in/ansh-sahani-575a29295",
+          "https://www.facebook.com/share/1H3z1WDBpn/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sahanirides.com/#website",
+        "name": "Sahani Rides",
+        "url": "https://sahanirides.com/",
+        "publisher": { "@id": "https://sahanirides.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://sahanirides.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --brand:#1e4eb0; --brand-dark:#154090; --bg:#f4faff; --card:#ffffff;
+      --soft:#f7fbff; --soft-border:#dfeaff; --muted:#456; --accent:#e0f4ff;
     }
-    .top-buttons button {
-      background-color: #1e4eb0;
-      color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
-      min-width: 110px;
-      transition: background-color 0.3s ease;
-    }
-    .top-buttons button:hover { background-color: #154090; }
+    *{box-sizing:border-box}
+    body { font-family: Arial, sans-serif; background: var(--bg); margin: 0; color: #222; }
+    .page { padding: 30px; max-width: 600px; margin: auto; background: var(--card); min-height: 100vh; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    h1, h2 { color: var(--brand); text-align: center; margin: 10px 0; }
+    nav { text-align:center; margin:10px 0 16px; color:var(--brand); }
+    nav a { color:var(--brand); text-decoration:underline; margin:0 6px; font-weight:700; }
+    label { display: block; margin: 15px 0 5px; font-weight: bold; }
+    input, select, button { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; }
+    button { background: var(--brand); color: white; border: none; cursor: pointer; margin-top: 12px; }
+    button:hover { background:var(--brand-dark); }
+    .result { background: var(--accent); padding: 15px; margin-top: 15px; border-radius: 6px; font-weight: bold; text-align: center; }
+
+    /* Page table (On this page) */
+    .toc-wrap{margin:14px 0 20px}
+    .toc-title{font-weight:800;color:var(--brand);margin:0 0 6px;text-align:center}
+    table.toc{width:100%;border-collapse:collapse;background:var(--soft);border:1px solid var(--soft-border);border-radius:10px;overflow:hidden}
+    .toc th,.toc td{padding:10px;border:1px solid var(--soft-border);text-align:left;font-size:14px}
+    .toc th{background:#eef5ff;color:#1b2c48}
+    .toc a{color:var(--brand);font-weight:700;text-decoration:none}
+    .toc a:hover{text-decoration:underline}
 
     /* Sections */
-    #driver-section, #real-rides-section, #ride-logic-section {
-      margin-top: 40px;
-      display: none;
-    }
+    .top-buttons { display:flex; justify-content:center; gap:10px; margin:12px 0 20px; flex-wrap:wrap; }
+    .top-buttons button { background:var(--brand); color:#fff; border:none; padding:8px 16px; border-radius:50px; cursor:pointer; font-weight:600; font-size:.9rem; min-width:110px; transition:background-color .3s ease; }
+    .top-buttons button:hover{ background:var(--brand-dark); }
+    #driver-section, #real-rides-section, #ride-logic-section { margin-top: 30px; display: none; }
 
-    /* Driver list (OVAL CARDS) */
-    .driver-details-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .driver-oval {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #fbfdff, #f0f6ff);
-      border: 2px solid rgba(30, 78, 176, 0.15);
-      box-shadow: 0 6px 18px rgba(30, 78, 176, 0.06);
-    }
-    .driver-badge {
-      background: #1e4eb0;
-      color: #fff;
-      font-weight: 800;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      flex: 0 0 auto;
-    }
-    .driver-lines { line-height: 1.25; }
-    .driver-name { font-weight: 900; color: #1e4eb0; font-size: 14px; }
-    .driver-line { font-size: 12px; color: #154090; }
-    .driver-level { font-weight: 800; color: #154090; }
-    .driver-time { font-size: 11px; color: #456; }
+    /* Driver list (oval cards) */
+    .driver-details-container{ display:flex; flex-direction:column; gap:12px; }
+    .driver-oval{ display:flex; align-items:center; gap:12px; padding:12px 18px; border-radius:999px; background:linear-gradient(180deg,#fbfdff,#f0f6ff); border:2px solid rgba(30,78,176,.15); box-shadow:0 6px 18px rgba(30,78,176,.06); }
+    .driver-badge{ background:var(--brand); color:#fff; font-weight:800; border-radius:999px; padding:6px 10px; font-size:12px; flex:0 0 auto; }
+    .driver-lines{ line-height:1.25; }
+    .driver-name{ font-weight:900; color:var(--brand); font-size:14px; }
+    .driver-line{ font-size:12px; color:var(--brand-dark); }
+    .driver-level{ font-weight:800; color:var(--brand-dark); }
+    .driver-time{ font-size:11px; color: var(--muted); }
 
     /* Blur sensitive info */
-    .blurred {
-      filter: blur(5px);
-      user-select: none;
-      letter-spacing: 2px;
-      display: inline-block;
-    }
+    .blurred{ filter: blur(5px); user-select: none; letter-spacing: 2px; display: inline-block; }
 
     /* Commission Chart */
-    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-    th { background-color: #e0f0ff; }
+    table{ width:100%; border-collapse:collapse; margin-top:12px; }
+    th, td{ border:1px solid #ccc; padding:10px; text-align:center; font-size:14px; }
+    th{ background:#e0f0ff; }
 
-    /* Real rides & Ride logic content */
-    #real-rides-section p, #ride-logic-section p {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #1e4eb0;
-    }
-    #ride-logic-section figure { margin:16px 0; text-align:center; }
-    #ride-logic-section img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-      margin-top: 10px;
-    }
-    .card-copy {
-      background:#f7fbff;
-      border:1px solid #dfeaff;
-      border-radius:12px;
-      padding:14px;
-      color:#1b2c48;
-    }
-    .card-copy h3 { margin:6px 0 10px; color:#1e4eb0; }
-    .card-copy p { margin:0 0 10px; line-height:1.55; }
-    .card-copy ul { margin:0 0 10px; padding-left:18px; line-height:1.55; }
-    blockquote {
-      margin:8px 0 0;
-      padding-left:12px;
-      border-left:4px solid #1e4eb0;
-      color:#223;
-      font-style: italic;
-    }
+    /* Ride logic */
+    #real-rides-section p, #ride-logic-section p{ text-align:center; font-size:1.05rem; color:var(--brand); }
+    #ride-logic-section figure{ margin:16px 0; text-align:center; }
+    #ride-logic-section img{ max-width:100%; height:auto; border-radius:10px; box-shadow:0 0 10px #ccc; margin-top:10px; }
+    .card-copy{ background:var(--soft); border:1px solid var(--soft-border); border-radius:12px; padding:14px; color:#1b2c48; }
+    .card-copy h3{ margin:6px 0 10px; color:var(--brand); }
+    .card-copy p{ margin:0 0 10px; line-height:1.55; }
+    .card-copy ul{ margin:0 0 10px; padding-left:18px; line-height:1.55; }
+    blockquote{ margin:8px 0 0; padding-left:12px; border-left:4px solid var(--brand); color:#223; font-style: italic; }
 
-    /* Status note */
-    .status-note {
-      text-align: center;
-      font-size: 12px;
-      color: #456;
-      margin: 10px 0 0;
-    }
+    /* Footer & socials */
+    .footer { text-align: center; margin-top: 30px; }
+    .footer img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: top; background-color: white; padding: 5px; box-shadow: 0 0 5px rgba(0,0,0,.1); margin-bottom: 10px; }
+    .footer strong { display: block; font-size: 16px; margin-top: 5px; }
+    .social-buttons { text-align: center; margin-top: 14px; }
+    .social-buttons a { display: inline-block; margin: 6px; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; }
+    .whatsapp{ background:#25D366; } .instagram{ background:#E1306C; }
+    .facebook{ background:#1877F2; } .x-btn{ background:#000000; } .linkedin{ background:#0077B5; }
+    .driver-btn{ background:var(--brand); margin-top:8px; }
+
+    .status-note{ text-align:center; font-size:12px; color:var(--muted); margin:8px 0 0; }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- Top buttons -->
+    <!-- Simple nav for crawl + UX -->
+    <nav>
+      <a href="#calculator">Commission Calculator</a> ·
+      <a href="#driver-section">Driver Section</a> ·
+      <a href="#ride-logic-section">Ride Logic</a> ·
+      <a href="#about-us">About Us</a>
+    </nav>
+
+    <!-- “On this page” TABLE (Page Table) -->
+    <div class="toc-wrap" aria-label="On this page">
+      <h3 class="toc-title">On this page</h3>
+      <table class="toc" role="navigation">
+        <thead>
+          <tr><th>Section</th><th>Link</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Commission Calculator</td><td><a href="#calculator">Go to Calculator</a></td></tr>
+          <tr><td>Driver Section</td><td><a href="#driver-section">View Drivers</a></td></tr>
+          <tr><td>Ride Logic</td><td><a href="#ride-logic-section">See How It Works</a></td></tr>
+          <tr><td>About Us</td><td><a href="#about-us">Learn About Sahani Rides</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Brand-first H1 -->
+    <h1>Sahani Rides</h1>
+    <h2>Transparent. Fair. Made for Real Drivers. <br><em>(Pilot Phase)</em></h2>
+
+    <!-- Top oval buttons -->
     <div class="top-buttons">
       <button id="btn-driver">Driver Section</button>
       <button id="btn-real-rides">Real Rides</button>
       <button id="btn-ride-logic">Ride Logic</button>
     </div>
 
-    <h1>Sahani Rides</h1>
-    <h2>Transparent. Fair. Made for Real Drivers. <br><em>(Pilot Phase)</em></h2>
-
+    <!-- Calculator (H2, not H1) -->
+    <h2 id="calculator">Commission Calculator (By KM)</h2>
     <label for="vehicle">Select Vehicle Type:</label>
-    <select id="vehicle">
+    <select id="vehicle" aria-label="Vehicle type">
       <option value="car">Sahani Cabs</option>
       <option value="auto">Sahani Auto</option>
       <option value="bike">Sahani Moto</option>
     </select>
 
     <label for="rides">Enter Total KM Completed:</label>
-    <input type="number" id="rides" placeholder="e.g. 150 KM" />
-    <button onclick="calculateCommission()">Check My Level</button>
+    <input type="number" id="rides" placeholder="e.g. 150 KM" aria-label="Total kilometers completed" />
+    <button onclick="calculateCommission()" aria-label="Check my level">Check My Level</button>
 
     <div class="result" id="output"></div>
 
     <div id="chart" style="display: none;">
       <h2>Commission Chart (By KM)</h2>
-      <table>
+      <table aria-label="Commission chart">
         <thead>
           <tr><th>Level</th><th>KM Range</th><th>Commission</th></tr>
         </thead>
@@ -243,7 +224,7 @@
     <div id="driver-section">
       <h2 style="text-align:center; color:#1e4eb0; margin-bottom:10px;">Driver Section</h2>
       <p style="text-align:center; margin-bottom:16px;">
-        Join our driver team by filling the form: 
+        Join our driver team by filling the form:
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" target="_blank" style="color:#1e4eb0; font-weight:700; text-decoration:underline;">
           Google Driver Form
         </a>
@@ -268,7 +249,7 @@
         <img
           id="invoice-img"
           src="https://i.postimg.cc/xTgDvv01/IMG-20250805-WA0006.jpg"
-          alt="Sahani Rides – Example invoice (Passenger + Driver views)"
+          alt="Sahani Rides – Example invoice (Passenger and Driver views)"
           loading="lazy"
           referrerpolicy="no-referrer"
         />
@@ -300,21 +281,25 @@
       </div>
     </div>
 
+    <!-- Footer: founder + socials + About Us -->
     <div class="footer">
       <img src="https://i.postimg.cc/k5vB34mH/Screenshot-20250728-170952-Chrome.jpg" alt="Ansh Sahani" />
       <strong>Ansh Sahani<br />Founder – Sahani Rides</strong>
 
-      <div class="social-buttons">
-        <a href="https://wa.me/917206933309" class="whatsapp" target="_blank">Chat on WhatsApp</a>
-        <a href="https://www.instagram.com/sahanirides?igsh=ZmF1eG5jZ2g2aGo0" class="instagram" target="_blank">Follow on Instagram</a>
-        <a href="https://www.facebook.com/share/1H3z1WDBpn/" class="facebook" target="_blank">Like on Facebook</a>
-        <a href="https://x.com/SahaniRides?t=p2YJt9w3qpCjHypb3xoYDA&s=09" class="x-btn" target="_blank">Follow on X</a>
-        <a href="https://www.linkedin.com/in/ansh-sahani-575a29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin" target="_blank">Connect on LinkedIn</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" class="driver-btn" target="_blank">Join Our Driver Team</a>
+      <div class="social-buttons" aria-label="Social links">
+        <!-- Primary -->
+        <a href="https://wa.me/917206933309" class="whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a href="https://www.instagram.com/sahanirides?igsh=ZmF1eG5jZ2g2aGo0" class="instagram" target="_blank" rel="noopener">Follow on Instagram</a>
+        <!-- Additional brand buttons -->
+        <a href="https://www.facebook.com/share/1H3z1WDBpn/" class="facebook" target="_blank" rel="noopener">Like on Facebook</a>
+        <a href="https://x.com/SahaniRides?t=p2YJt9w3qpCjHypb3xoYDA&s=09" class="x-btn" target="_blank" rel="noopener">Follow on X</a>
+        <a href="https://www.linkedin.com/in/ansh-sahani-575a29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <!-- CTA -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" class="driver-btn" target="_blank" rel="noopener">Join Our Driver Team</a>
       </div>
 
-      <!-- ABOUT US placed clearly inside footer (separate, structured box) -->
-      <section id="about-us" style="margin-top:30px; padding:20px; background:#f8fbff; border-radius:10px; text-align:left;">
+      <!-- ABOUT US (structured, crawlable) -->
+      <section id="about-us" style="margin-top:22px; padding:20px; background:#f8fbff; border-radius:10px; text-align:left;">
         <h2 style="color:#1e4eb0; text-align:center;">About Sahani Rides</h2>
         <p>
           <strong>Sahani Rides</strong> is an innovative Indian ride-hailing and transportation startup, founded in
@@ -322,8 +307,8 @@
           entrepreneur with a passion for building <em>safe, transparent, and driver-friendly</em> travel solutions.
         </p>
         <p>
-          With a deep understanding of the everyday challenges faced by both drivers and passengers, Sahani Rides was
-          created to solve high commission rates, lack of trust, and safety concerns that dominate the current ride-hailing market.
+          With a deep understanding of challenges faced by drivers and passengers, Sahani Rides was
+          created to solve high commission rates, lack of trust, and safety concerns that dominate the ride-hailing market.
         </p>
 
         <h3 style="color:#1e4eb0;">Mission Statement</h3>
@@ -335,7 +320,7 @@
         <h3 style="color:#1e4eb0;">What We Do</h3>
         <ul style="line-height:1.6; margin-left:18px;">
           <li>Cab, auto, and bike ride-hailing services in one platform.</li>
-          <li>Unique <strong>commission level system</strong> – the more a driver rides, the less they pay in platform fees.</li>
+          <li>Unique <strong>commission level system</strong> – as drivers complete more rides, platform fees reduce.</li>
           <li>Passenger safety features: visible safety kits, trust-building driver introductions, and ride monitoring.</li>
           <li>Transparent pricing with instant invoices for both passengers and drivers.</li>
         </ul>
@@ -348,12 +333,12 @@
           <li><strong>Industry:</strong> Transportation / Ride-hailing</li>
           <li><strong>Headquarters:</strong> Chennai, Tamil Nadu, India</li>
           <li><strong>Services:</strong> Cabs, Autos, Bikes – with driver growth incentives and passenger safety focus.</li>
-          <li><strong>Website:</strong> <a href="https://www.sahanirides.com" target="_blank">www.sahanirides.com</a></li>
+          <li><strong>Website:</strong> <a href="https://www.sahanirides.com" target="_blank" rel="noopener">www.sahanirides.com</a></li>
           <li><strong>Social Links:</strong>
-            <a href="https://www.instagram.com/sahanirides" target="_blank">Instagram</a>,
-            <a href="https://x.com/SahaniRides?t=p2YJt9w3qpCjHypb3xoYDA&s=09" target="_blank">X</a>,
-            <a href="https://www.linkedin.com/in/ansh-sahani-575a29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>,
-            <a href="https://www.facebook.com/share/1H3z1WDBpn/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/sahanirides" target="_blank" rel="noopener">Instagram</a>,
+            <a href="https://x.com/SahaniRides?t=p2YJt9w3qpCjHypb3xoYDA&s=09" target="_blank" rel="noopener">X</a>,
+            <a href="https://www.linkedin.com/in/ansh-sahani-575a29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener">LinkedIn</a>,
+            <a href="https://www.facebook.com/share/1H3z1WDBpn/" target="_blank" rel="noopener">Facebook</a>
           </li>
         </ul>
 
@@ -366,11 +351,10 @@
 
         <h3 style="color:#1e4eb0;">Contact</h3>
         <p>
-          <strong>Email:</strong> contact@sahanirides.com<br>
-          <strong>City:</strong> Chennai, Tamil Nadu, India
+          <strong>Founded by:</strong> Ansh Sahani (Founder, Sahani Rides) — Chennai, India, 2025.<br>
+          <strong>Email:</strong> contact@sahanirides.com
         </p>
       </section>
-      <!-- /ABOUT US -->
     </div>
   </div>
 
@@ -379,9 +363,7 @@
     function calculateCommission() {
       const vehicle = document.getElementById("vehicle").value;
       const rides = parseInt(document.getElementById("rides").value);
-      let commission = 0;
-      let level = "";
-      let chartData = [];
+      let commission = 0, level = "", chartData = [];
 
       if (vehicle === "car") {
         if (rides <= 249) { commission = 19.9; level = "Level 1";
@@ -394,7 +376,7 @@
           ["Level 2", "250–499 KM", "17.9%"],
           ["Level 3", "500–749 KM", "15.9%"],
           ["Level 4", "750–999 KM", "11.9%"],
-          ["Level 5", "1000+ KM", "7.9%"],
+          ["Level 5", "1000+ KM", "7.9%"]
         ];
       } else if (vehicle === "auto") {
         if (rides <= 149) { commission = 19.9; level = "Level 1";
@@ -407,7 +389,7 @@
           ["Level 2", "150–349 KM", "15.9%"],
           ["Level 3", "350–599 KM", "13.3%"],
           ["Level 4", "600–849 KM", "10.3%"],
-          ["Level 5", "850+ KM", "8.3%"],
+          ["Level 5", "850+ KM", "8.3%"]
         ];
       } else if (vehicle === "bike") {
         if (rides <= 149) { commission = 19.9; level = "Level 1";
@@ -420,7 +402,7 @@
           ["Level 2", "150–349 KM", "15.9%"],
           ["Level 3", "350–599 KM", "13.9%"],
           ["Level 4", "600–849 KM", "10.9%"],
-          ["Level 5", "850+ KM", "8.6%"],
+          ["Level 5", "850+ KM", "8.6%"]
         ];
       }
 
@@ -470,7 +452,6 @@
     /* ---------------- LIVE DRIVERS (from CSV) ---------------- */
     const SHEET_CSV_URL =
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYbWyqmpkGVg098hhriuQ74toMrmD6G4pJ62ciB1GAVy1ltsZSrCkrK8UYhcS1TETotnN_FgCO8gNV/pub?gid=2020961533&single=true&output=csv";
-
     const REFRESH_MS = 60000;
 
     const $ = (sel) => document.querySelector(sel);
@@ -493,7 +474,7 @@
       const end = Math.min(2, Math.floor(len * 0.2));
       return v.slice(0, start) + "*".repeat(Math.max(1, len - (start + end))) + v.slice(len - end);
     }
-    function esc(s){ return (s||"").toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+    function esc(s){ return (s||"").toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 
     async function fetchCsv() {
       const statusEl = $("#driverStatus");
@@ -526,10 +507,7 @@
         });
       }
 
-      if (idx.time > -1) {
-        data.sort((a, b) => (new Date(b.time)) - (new Date(a.time)));
-      }
-
+      if (idx.time > -1) data.sort((a, b) => (new Date(b.time)) - (new Date(a.time)));
       renderDrivers(data);
 
       const t1 = performance.now();
@@ -558,11 +536,9 @@
       });
     }
 
-    async function loadDrivers(){
-      try { await fetchCsv(); }
-      catch (e) { $("#driverStatus").textContent = e.message || "Failed to load drivers."; }
-    }
+    async function loadDrivers(){ try { await fetchCsv(); } catch (e) { $("#driverStatus").textContent = e.message || "Failed to load drivers."; } }
 
+    // Auto-refresh every 60s while the page is open (only when driver section visible)
     setInterval(() => {
       const visible = document.getElementById("driver-section").style.display !== "none";
       if (visible) loadDrivers();
