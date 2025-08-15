@@ -10,6 +10,8 @@
   <meta name="description" content="Sahani Rides is an Indian ride-hailing startup founded in 2025 in Chennai by Ansh Sahani. Safe, transparent fares and driver-friendly commissions for cabs, autos and bikes." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://sahanirides.com/" />
+  <meta name="application-name" content="Sahani Rides" />
+  <meta name="apple-mobile-web-app-title" content="Sahani Rides" />
 
   <!-- Identity/ownership helpers -->
   <link rel="me" href="https://x.com/SahaniRides">
@@ -20,32 +22,34 @@
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Sahani Rides — Official Site">
-  <meta property="og:description" content="Safe, transparent, driver-friendly ride-hailing from Chennai, India.">
-  <meta property="og:url" content="https://sahanirides.com/">
-  <meta property="og:image" content="https://sahanirides.com/logo.png">
+  <meta property="og:site_name" content="Sahani Rides">
+  <meta property="og:title" content="Sahani Rides — Official Site" />
+  <meta property="og:description" content="Safe, transparent, driver-friendly ride-hailing from Chennai, India." />
+  <meta property="og:url" content="https://sahanirides.com/" />
+  <meta property="og:image" content="https://sahanirides.com/logo.png" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sahani Rides — Official Site">
   <meta name="twitter:description" content="Safe, transparent, driver-friendly ride-hailing from Chennai, India.">
   <meta name="twitter:image" content="https://sahanirides.com/logo.png">
+  <meta name="twitter:site" content="@SahaniRides">
 
-  <!-- (Optional) icons if you have these files at repo root -->
+  <!-- Icons (optional if present) -->
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- ====== ENTITY GRAPH: Person + Organization + Website (joined via @id) ====== -->
+  <!-- ====== ENTITY GRAPH: Person + Organization + WebSite + WebPage ====== -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
+    "@context":"https://schema.org",
+    "@graph":[
       {
-        "@type": "Person",
-        "@id": "https://sahanirides.com/#ansh-sahani",
-        "name": "Ansh Sahani",
-        "jobTitle": "Founder",
-        "url": "https://sahanirides.com/",
-        "worksFor": { "@id": "https://sahanirides.com/#organization" },
-        "sameAs": [
+        "@type":"Person",
+        "@id":"https://sahanirides.com/#ansh-sahani",
+        "name":"Ansh Sahani",
+        "jobTitle":"Founder",
+        "url":"https://sahanirides.com/",
+        "worksFor":{"@id":"https://sahanirides.com/#organization"},
+        "sameAs":[
           "https://instagram.com/sahanirides",
           "https://x.com/SahaniRides",
           "https://www.linkedin.com/in/ansh-sahani-575a29295",
@@ -53,15 +57,15 @@
         ]
       },
       {
-        "@type": "Organization",
-        "@id": "https://sahanirides.com/#organization",
-        "name": "Sahani Rides",
-        "url": "https://sahanirides.com/",
-        "logo": "https://sahanirides.com/logo.png",
-        "foundingDate": "2025",
-        "foundingLocation": "Chennai, Tamil Nadu, India",
-        "founder": { "@id": "https://sahanirides.com/#ansh-sahani" },
-        "sameAs": [
+        "@type":"Organization",
+        "@id":"https://sahanirides.com/#organization",
+        "name":"Sahani Rides",
+        "url":"https://sahanirides.com/",
+        "logo":"https://sahanirides.com/logo.png",
+        "foundingDate":"2025",
+        "foundingLocation":"Chennai, Tamil Nadu, India",
+        "founder":{"@id":"https://sahanirides.com/#ansh-sahani"},
+        "sameAs":[
           "https://sahanirides.com/",
           "https://instagram.com/sahanirides",
           "https://x.com/SahaniRides",
@@ -70,15 +74,29 @@
         ]
       },
       {
-        "@type": "WebSite",
-        "@id": "https://sahanirides.com/#website",
-        "name": "Sahani Rides",
-        "url": "https://sahanirides.com/",
-        "publisher": { "@id": "https://sahanirides.com/#organization" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://sahanirides.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
+        "@type":"WebSite",
+        "@id":"https://sahanirides.com/#website",
+        "name":"Sahani Rides",
+        "url":"https://sahanirides.com/",
+        "publisher":{"@id":"https://sahanirides.com/#organization"},
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://sahanirides.com/?q={search_term_string}",
+          "query-input":"required name=search_term_string"
+        }
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://sahanirides.com/#webpage",
+        "url":"https://sahanirides.com/",
+        "name":"Sahani Rides — Official Site",
+        "headline":"Sahani Rides — Official Site",
+        "inLanguage":"en",
+        "isPartOf":{"@id":"https://sahanirides.com/#website"},
+        "about":{"@id":"https://sahanirides.com/#organization"},
+        "primaryImageOfPage":{
+          "@type":"ImageObject",
+          "url":"https://sahanirides.com/logo.png"
         }
       }
     ]
@@ -91,18 +109,18 @@
       --soft:#f7fbff; --soft-border:#dfeaff; --muted:#456; --accent:#e0f4ff;
     }
     *{box-sizing:border-box}
-    body { font-family: Arial, sans-serif; background: var(--bg); margin: 0; color: #222; }
-    .page { padding: 30px; max-width: 600px; margin: auto; background: var(--card); min-height: 100vh; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
-    h1, h2 { color: var(--brand); text-align: center; margin: 10px 0; }
-    nav { text-align:center; margin:10px 0 16px; color:var(--brand); }
-    nav a { color:var(--brand); text-decoration:underline; margin:0 6px; font-weight:700; }
-    label { display: block; margin: 15px 0 5px; font-weight: bold; }
-    input, select, button { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; }
-    button { background: var(--brand); color: white; border: none; cursor: pointer; margin-top: 12px; }
-    button:hover { background:var(--brand-dark); }
-    .result { background: var(--accent); padding: 15px; margin-top: 15px; border-radius: 6px; font-weight: bold; text-align: center; }
+    body{font-family:Arial,sans-serif;background:var(--bg);margin:0;color:#222}
+    .page{padding:30px;max-width:600px;margin:auto;background:var(--card);min-height:100vh;border-radius:10px;box-shadow:0 0 10px #ccc}
+    h1,h2{color:var(--brand);text-align:center;margin:10px 0}
+    nav{text-align:center;margin:10px 0 16px;color:var(--brand)}
+    nav a{color:var(--brand);text-decoration:underline;margin:0 6px;font-weight:700}
+    label{display:block;margin:15px 0 5px;font-weight:bold}
+    input,select,button{width:100%;padding:10px;border-radius:6px;border:1px solid #ccc}
+    button{background:var(--brand);color:#fff;border:none;cursor:pointer;margin-top:12px}
+    button:hover{background:var(--brand-dark)}
+    .result{background:var(--accent);padding:15px;margin-top:15px;border-radius:6px;font-weight:bold;text-align:center}
 
-    /* Page table (On this page) */
+    /* On this page (table of contents) */
     .toc-wrap{margin:14px 0 20px}
     .toc-title{font-weight:800;color:var(--brand);margin:0 0 6px;text-align:center}
     table.toc{width:100%;border-collapse:collapse;background:var(--soft);border:1px solid var(--soft-border);border-radius:10px;overflow:hidden}
@@ -112,80 +130,74 @@
     .toc a:hover{text-decoration:underline}
 
     /* Sections */
-    .top-buttons { display:flex; justify-content:center; gap:10px; margin:12px 0 20px; flex-wrap:wrap; }
-    .top-buttons button { background:var(--brand); color:#fff; border:none; padding:8px 16px; border-radius:50px; cursor:pointer; font-weight:600; font-size:.9rem; min-width:110px; transition:background-color .3s ease; }
-    .top-buttons button:hover{ background:var(--brand-dark); }
-    #driver-section, #real-rides-section, #ride-logic-section { margin-top: 30px; display: none; }
+    .top-buttons{display:flex;justify-content:center;gap:10px;margin:12px 0 20px;flex-wrap:wrap}
+    .top-buttons button{background:var(--brand);color:#fff;border:none;padding:8px 16px;border-radius:50px;cursor:pointer;font-weight:600;font-size:.9rem;min-width:110px;transition:background-color .3s}
+    .top-buttons button:hover{background:var(--brand-dark)}
+    #driver-section,#real-rides-section,#ride-logic-section{margin-top:30px;display:none}
 
     /* Driver list (oval cards) */
-    .driver-details-container{ display:flex; flex-direction:column; gap:12px; }
-    .driver-oval{ display:flex; align-items:center; gap:12px; padding:12px 18px; border-radius:999px; background:linear-gradient(180deg,#fbfdff,#f0f6ff); border:2px solid rgba(30,78,176,.15); box-shadow:0 6px 18px rgba(30,78,176,.06); }
-    .driver-badge{ background:var(--brand); color:#fff; font-weight:800; border-radius:999px; padding:6px 10px; font-size:12px; flex:0 0 auto; }
-    .driver-lines{ line-height:1.25; }
-    .driver-name{ font-weight:900; color:var(--brand); font-size:14px; }
-    .driver-line{ font-size:12px; color:var(--brand-dark); }
-    .driver-level{ font-weight:800; color:var(--brand-dark); }
-    .driver-time{ font-size:11px; color: var(--muted); }
+    .driver-details-container{display:flex;flex-direction:column;gap:12px}
+    .driver-oval{display:flex;align-items:center;gap:12px;padding:12px 18px;border-radius:999px;background:linear-gradient(180deg,#fbfdff,#f0f6ff);border:2px solid rgba(30,78,176,.15);box-shadow:0 6px 18px rgba(30,78,176,.06)}
+    .driver-badge{background:var(--brand);color:#fff;font-weight:800;border-radius:999px;padding:6px 10px;font-size:12px;flex:0 0 auto}
+    .driver-lines{line-height:1.25}
+    .driver-name{font-weight:900;color:var(--brand);font-size:14px}
+    .driver-line{font-size:12px;color:var(--brand-dark)}
+    .driver-level{font-weight:800;color:var(--brand-dark)}
+    .driver-time{font-size:11px;color:var(--muted)}
 
-    /* Blur sensitive info */
-    .blurred{ filter: blur(5px); user-select: none; letter-spacing: 2px; display: inline-block; }
+    .blurred{filter:blur(5px);user-select:none;letter-spacing:2px;display:inline-block}
 
-    /* Commission Chart */
-    table{ width:100%; border-collapse:collapse; margin-top:12px; }
-    th, td{ border:1px solid #ccc; padding:10px; text-align:center; font-size:14px; }
-    th{ background:#e0f0ff; }
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{border:1px solid #ccc;padding:10px;text-align:center;font-size:14px}
+    th{background:#e0f0ff}
 
-    /* Ride logic */
-    #real-rides-section p, #ride-logic-section p{ text-align:center; font-size:1.05rem; color:var(--brand); }
-    #ride-logic-section figure{ margin:16px 0; text-align:center; }
-    #ride-logic-section img{ max-width:100%; height:auto; border-radius:10px; box-shadow:0 0 10px #ccc; margin-top:10px; }
-    .card-copy{ background:var(--soft); border:1px solid var(--soft-border); border-radius:12px; padding:14px; color:#1b2c48; }
-    .card-copy h3{ margin:6px 0 10px; color:var(--brand); }
-    .card-copy p{ margin:0 0 10px; line-height:1.55; }
-    .card-copy ul{ margin:0 0 10px; padding-left:18px; line-height:1.55; }
-    blockquote{ margin:8px 0 0; padding-left:12px; border-left:4px solid var(--brand); color:#223; font-style: italic; }
+    #real-rides-section p,#ride-logic-section p{text-align:center;font-size:1.05rem;color:var(--brand)}
+    #ride-logic-section figure{margin:16px 0;text-align:center}
+    #ride-logic-section img{max-width:100%;height:auto;border-radius:10px;box-shadow:0 0 10px #ccc;margin-top:10px}
+    .card-copy{background:var(--soft);border:1px solid var(--soft-border);border-radius:12px;padding:14px;color:#1b2c48}
+    .card-copy h3{margin:6px 0 10px;color:var(--brand)}
+    .card-copy p{margin:0 0 10px;line-height:1.55}
+    .card-copy ul{margin:0 0 10px;padding-left:18px;line-height:1.55}
+    blockquote{margin:8px 0 0;padding-left:12px;border-left:4px solid var(--brand);color:#223;font-style:italic}
 
-    /* Footer & socials */
-    .footer { text-align: center; margin-top: 30px; }
-    .footer img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: top; background-color: white; padding: 5px; box-shadow: 0 0 5px rgba(0,0,0,.1); margin-bottom: 10px; }
-    .footer strong { display: block; font-size: 16px; margin-top: 5px; }
-    .social-buttons { text-align: center; margin-top: 14px; }
-    .social-buttons a { display: inline-block; margin: 6px; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold; color: white; }
-    .whatsapp{ background:#25D366; } .instagram{ background:#E1306C; }
-    .facebook{ background:#1877F2; } .x-btn{ background:#000000; } .linkedin{ background:#0077B5; }
-    .driver-btn{ background:var(--brand); margin-top:8px; }
+    .footer{text-align:center;margin-top:30px}
+    .footer img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:top;background:#fff;padding:5px;box-shadow:0 0 5px rgba(0,0,0,.1);margin-bottom:10px}
+    .footer strong{display:block;font-size:16px;margin-top:5px}
+    .social-buttons{text-align:center;margin-top:14px}
+    .social-buttons a{display:inline-block;margin:6px;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold;color:#fff}
+    .whatsapp{background:#25D366}.instagram{background:#E1306C}
+    .facebook{background:#1877F2}.x-btn{background:#000}.linkedin{background:#0077B5}
+    .driver-btn{background:var(--brand);margin-top:8px}
 
-    .status-note{ text-align:center; font-size:12px; color:var(--muted); margin:8px 0 0; }
+    .status-note{text-align:center;font-size:12px;color:var(--muted);margin:8px 0 0}
   </style>
 </head>
 <body>
   <div class="page">
     <!-- Simple nav for crawl + UX -->
     <nav>
-      <a href="#calculator">Commission Calculator</a> ·
+      <a href="#about-us">About Us</a> ·
+      <a href="#calculator">Commission Levels</a> ·
       <a href="#driver-section">Driver Section</a> ·
-      <a href="#ride-logic-section">Ride Logic</a> ·
-      <a href="#about-us">About Us</a>
+      <a href="#ride-logic-section">Ride Logic</a>
     </nav>
 
-    <!-- “On this page” TABLE (Page Table) -->
+    <!-- Page TOC -->
     <div class="toc-wrap" aria-label="On this page">
       <h3 class="toc-title">On this page</h3>
       <table class="toc" role="navigation">
-        <thead>
-          <tr><th>Section</th><th>Link</th></tr>
-        </thead>
+        <thead><tr><th>Section</th><th>Link</th></tr></thead>
         <tbody>
-          <tr><td>Commission Calculator</td><td><a href="#calculator">Go to Calculator</a></td></tr>
+          <tr><td>About Us</td><td><a href="#about-us">Learn About Sahani Rides</a></td></tr>
+          <tr><td>Commission Levels</td><td><a href="#calculator">Open Calculator</a></td></tr>
           <tr><td>Driver Section</td><td><a href="#driver-section">View Drivers</a></td></tr>
           <tr><td>Ride Logic</td><td><a href="#ride-logic-section">See How It Works</a></td></tr>
-          <tr><td>About Us</td><td><a href="#about-us">Learn About Sahani Rides</a></td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Brand-first H1 -->
-    <h1>Sahani Rides</h1>
+    <!-- Brand-first -->
+    <h1 itemprop="name">Sahani Rides</h1>
     <h2>Transparent. Fair. Made for Real Drivers. <br><em>(Pilot Phase)</em></h2>
 
     <!-- Top oval buttons -->
@@ -195,41 +207,40 @@
       <button id="btn-ride-logic">Ride Logic</button>
     </div>
 
-    <!-- Calculator (H2, not H1) -->
-    <h2 id="calculator">Commission Calculator (By KM)</h2>
-    <label for="vehicle">Select Vehicle Type:</label>
-    <select id="vehicle" aria-label="Vehicle type">
-      <option value="car">Sahani Cabs</option>
-      <option value="auto">Sahani Auto</option>
-      <option value="bike">Sahani Moto</option>
-    </select>
+    <!-- Calculator (de-emphasised for titles/snippets) -->
+    <section id="calculator" aria-label="Commission Levels and Calculator" data-nosnippet>
+      <h2>Commission Levels & Calculator</h2>
+      <label for="vehicle">Select Vehicle Type:</label>
+      <select id="vehicle" aria-label="Vehicle type">
+        <option value="car">Sahani Cabs</option>
+        <option value="auto">Sahani Auto</option>
+        <option value="bike">Sahani Moto</option>
+      </select>
 
-    <label for="rides">Enter Total KM Completed:</label>
-    <input type="number" id="rides" placeholder="e.g. 150 KM" aria-label="Total kilometers completed" />
-    <button onclick="calculateCommission()" aria-label="Check my level">Check My Level</button>
+      <label for="rides">Enter Total KM Completed:</label>
+      <input type="number" id="rides" placeholder="e.g. 150 KM" aria-label="Total kilometers completed" />
+      <button onclick="calculateCommission()" aria-label="Check my level">Check My Level</button>
 
-    <div class="result" id="output"></div>
+      <div class="result" id="output"></div>
 
-    <div id="chart" style="display: none;">
-      <h2>Commission Chart (By KM)</h2>
-      <table aria-label="Commission chart">
-        <thead>
-          <tr><th>Level</th><th>KM Range</th><th>Commission</th></tr>
-        </thead>
-        <tbody id="chartBody"></tbody>
-      </table>
-    </div>
+      <div id="chart" style="display:none">
+        <h2>Commission Chart (By KM)</h2>
+        <table aria-label="Commission chart">
+          <thead><tr><th>Level</th><th>KM Range</th><th>Commission</th></tr></thead>
+          <tbody id="chartBody"></tbody>
+        </table>
+      </div>
+    </section>
 
     <!-- Driver Section -->
     <div id="driver-section">
-      <h2 style="text-align:center; color:#1e4eb0; margin-bottom:10px;">Driver Section</h2>
-      <p style="text-align:center; margin-bottom:16px;">
+      <h2 style="text-align:center;color:#1e4eb0;margin-bottom:10px;">Driver Section</h2>
+      <p style="text-align:center;margin-bottom:16px;">
         Join our driver team by filling the form:
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" target="_blank" style="color:#1e4eb0; font-weight:700; text-decoration:underline;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" target="_blank" style="color:#1e4eb0;font-weight:700;text-decoration:underline" rel="noopener">
           Google Driver Form
         </a>
       </p>
-
       <div id="driverSummary" class="status-note">Loading drivers…</div>
       <div class="driver-details-container" id="driverContainer"></div>
       <div id="driverStatus" class="status-note"></div>
@@ -237,22 +248,17 @@
 
     <!-- Real Rides Section -->
     <div id="real-rides-section">
-      <h2 style="color:#1e4eb0; text-align:center;">Real Rides</h2>
+      <h2 style="color:#1e4eb0;text-align:center;">Real Rides</h2>
       <p>Coming Soon! Stay tuned for updates.</p>
     </div>
 
     <!-- Ride Logic Section -->
     <div id="ride-logic-section">
-      <h2 style="color:#1e4eb0; text-align:center;">Ride Logic</h2>
+      <h2 style="color:#1e4eb0;text-align:center;">Ride Logic</h2>
 
       <figure>
-        <img
-          id="invoice-img"
-          src="https://i.postimg.cc/xTgDvv01/IMG-20250805-WA0006.jpg"
-          alt="Sahani Rides – Example invoice (Passenger and Driver views)"
-          loading="lazy"
-          referrerpolicy="no-referrer"
-        />
+        <img id="invoice-img" src="https://i.postimg.cc/xTgDvv01/IMG-20250805-WA0006.jpg"
+             alt="Sahani Rides – Example invoice (Passenger and Driver views)" loading="lazy" referrerpolicy="no-referrer" />
         <figcaption style="font-size:12px;color:#456;margin-top:8px">
           Example invoice – Passenger copy & Driver payout copy
         </figcaption>
@@ -260,14 +266,10 @@
 
       <div class="card-copy">
         <h3>The Hostel Reality</h3>
-        <p>
-          The fare might show <strong>₹600</strong>, but the driver ends up asking for more. It’s not always the driver’s fault — many platforms take huge commissions.
-        </p>
+        <p>The fare might show <strong>₹600</strong>, but the driver ends up asking for more. It’s not always the driver’s fault — many platforms take huge commissions.</p>
         <p style="margin-bottom:6px;">One driver told me himself:</p>
         <blockquote>“Out of ₹600, the company keeps ₹200, I get ₹400, and ₹100 goes into petrol.”</blockquote>
-        <p style="margin-top:8px;">
-          The customer thinks the driver is overcharging, the driver feels misunderstood, and the company quietly takes its cut from both.
-        </p>
+        <p style="margin-top:8px;">The customer thinks the driver is overcharging, the driver feels misunderstood, and the company quietly takes its cut from both.</p>
 
         <h3 style="margin-top:14px;">How Sahani’s Pilot Phase Fixes It</h3>
         <p>In Sahani’s test phase, the customer and driver can openly adjust the fare together — no hidden amounts. Both instantly get a clear invoice:</p>
@@ -275,50 +277,36 @@
           <li><strong>Passenger’s copy</strong> shows the final fare and rewards earned.</li>
           <li><strong>Driver’s copy</strong> shows platform fee, fuel cost, and net payout.</li>
         </ul>
-        <p style="margin:0;">
-          If this trial works, we’ll make it faster, smoother, and roll it out to the real world — keeping trust between passengers and drivers intact from day one.
-        </p>
+        <p style="margin:0;">If this trial works, we’ll make it faster, smoother, and roll it out to the real world — keeping trust between passengers and drivers intact from day one.</p>
       </div>
     </div>
 
     <!-- Footer: founder + socials + About Us -->
     <div class="footer">
       <img src="https://i.postimg.cc/k5vB34mH/Screenshot-20250728-170952-Chrome.jpg" alt="Ansh Sahani" />
-      <strong>Ansh Sahani<br />Founder – Sahani Rides</strong>
+      <strong>Ansh Sahani<br/>Founder – Sahani Rides</strong>
 
       <div class="social-buttons" aria-label="Social links">
-        <!-- Primary -->
         <a href="https://wa.me/917206933309" class="whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
         <a href="https://www.instagram.com/sahanirides?igsh=ZmF1eG5jZ2g2aGo0" class="instagram" target="_blank" rel="noopener">Follow on Instagram</a>
-        <!-- Additional brand buttons -->
         <a href="https://www.facebook.com/share/1H3z1WDBpn/" class="facebook" target="_blank" rel="noopener">Like on Facebook</a>
         <a href="https://x.com/SahaniRides?t=p2YJt9w3qpCjHypb3xoYDA&s=09" class="x-btn" target="_blank" rel="noopener">Follow on X</a>
         <a href="https://www.linkedin.com/in/ansh-sahani-575a29295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        <!-- CTA -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeri7lWcQBhOMmu93vnEYsAkcsTsXK73Q64e-QnR1_humbOeQ/viewform?usp=sharing" class="driver-btn" target="_blank" rel="noopener">Join Our Driver Team</a>
       </div>
 
-      <!-- ABOUT US (structured, crawlable) -->
-      <section id="about-us" style="margin-top:22px; padding:20px; background:#f8fbff; border-radius:10px; text-align:left;">
-        <h2 style="color:#1e4eb0; text-align:center;">About Sahani Rides</h2>
-        <p>
-          <strong>Sahani Rides</strong> is an innovative Indian ride-hailing and transportation startup, founded in
-          <strong>2025</strong> in <strong>Chennai, Tamil Nadu</strong> by <strong>Ansh Sahani</strong>, an Indian
-          entrepreneur with a passion for building <em>safe, transparent, and driver-friendly</em> travel solutions.
-        </p>
-        <p>
-          With a deep understanding of challenges faced by drivers and passengers, Sahani Rides was
-          created to solve high commission rates, lack of trust, and safety concerns that dominate the ride-hailing market.
-        </p>
+      <section id="about-us" style="margin-top:22px;padding:20px;background:#f8fbff;border-radius:10px;text-align:left;">
+        <h2 style="color:#1e4eb0;text-align:center;">About Sahani Rides</h2>
+        <p><strong>Sahani Rides</strong> is an innovative Indian ride-hailing and transportation startup, founded in <strong>2025</strong> in <strong>Chennai, Tamil Nadu</strong> by <strong>Ansh Sahani</strong>, an Indian entrepreneur with a passion for building <em>safe, transparent, and driver-friendly</em> travel solutions.</p>
+        <p>With a deep understanding of challenges faced by drivers and passengers, Sahani Rides was created to solve high commission rates, lack of trust, and safety concerns that dominate the ride-hailing market.</p>
 
         <h3 style="color:#1e4eb0;">Mission Statement</h3>
-        <blockquote style="border-left:4px solid #1e4eb0; padding-left:10px; color:#333;">
-          To make travel safe, affordable, and driver-friendly by reducing commissions as drivers grow, introducing transparent fare systems,
-          and ensuring passengers feel secure every ride.
+        <blockquote style="border-left:4px solid #1e4eb0;padding-left:10px;color:#333;">
+          To make travel safe, affordable, and driver-friendly by reducing commissions as drivers grow, introducing transparent fare systems, and ensuring passengers feel secure every ride.
         </blockquote>
 
         <h3 style="color:#1e4eb0;">What We Do</h3>
-        <ul style="line-height:1.6; margin-left:18px;">
+        <ul style="line-height:1.6;margin-left:18px;">
           <li>Cab, auto, and bike ride-hailing services in one platform.</li>
           <li>Unique <strong>commission level system</strong> – as drivers complete more rides, platform fees reduce.</li>
           <li>Passenger safety features: visible safety kits, trust-building driver introductions, and ride monitoring.</li>
@@ -326,7 +314,7 @@
         </ul>
 
         <h3 style="color:#1e4eb0;">Key Facts</h3>
-        <ul style="line-height:1.6; margin-left:18px;">
+        <ul style="line-height:1.6;margin-left:18px;">
           <li><strong>Full Name:</strong> Sahani Rides</li>
           <li><strong>Founded By:</strong> Ansh Sahani</li>
           <li><strong>Year Founded:</strong> 2025</li>
@@ -343,206 +331,176 @@
         </ul>
 
         <h3 style="color:#1e4eb0;">Why We’re Different</h3>
-        <ul style="line-height:1.6; margin-left:18px;">
+        <ul style="line-height:1.6;margin-left:18px;">
           <li>Drivers earn more over time with reduced commissions.</li>
           <li>Passengers enjoy complete transparency in fares and safety measures.</li>
           <li>Built on <strong>community trust</strong> before profit.</li>
         </ul>
 
         <h3 style="color:#1e4eb0;">Contact</h3>
-        <p>
-          <strong>Founded by:</strong> Ansh Sahani (Founder, Sahani Rides) — Chennai, India, 2025.<br>
-          <strong>Email:</strong> contact@sahanirides.com
-        </p>
+        <p><strong>Founded by:</strong> Ansh Sahani (Founder, Sahani Rides) — Chennai, India, 2025.<br>
+           <strong>Email:</strong> contact@sahanirides.com</p>
       </section>
     </div>
   </div>
 
   <script>
-    /* ---------------- Commission Calculator ---------------- */
-    function calculateCommission() {
-      const vehicle = document.getElementById("vehicle").value;
-      const rides = parseInt(document.getElementById("rides").value);
-      let commission = 0, level = "", chartData = [];
+    function calculateCommission(){
+      const vehicle=document.getElementById("vehicle").value;
+      const rides=parseInt(document.getElementById("rides").value);
+      let commission=0,level="",chartData=[];
 
-      if (vehicle === "car") {
-        if (rides <= 249) { commission = 19.9; level = "Level 1";
-        } else if (rides <= 499) { commission = 17.9; level = "Level 2";
-        } else if (rides <= 749) { commission = 15.9; level = "Level 3";
-        } else if (rides <= 999) { commission = 11.9; level = "Level 4";
-        } else { commission = 7.9; level = "Level 5"; }
-        chartData = [
-          ["Level 1", "0–249 KM", "19.9%"],
-          ["Level 2", "250–499 KM", "17.9%"],
-          ["Level 3", "500–749 KM", "15.9%"],
-          ["Level 4", "750–999 KM", "11.9%"],
-          ["Level 5", "1000+ KM", "7.9%"]
-        ];
-      } else if (vehicle === "auto") {
-        if (rides <= 149) { commission = 19.9; level = "Level 1";
-        } else if (rides <= 349) { commission = 15.9; level = "Level 2";
-        } else if (rides <= 599) { commission = 13.3; level = "Level 3";
-        } else if (rides <= 849) { commission = 10.3; level = "Level 4";
-        } else { commission = 8.3; level = "Level 5"; }
-        chartData = [
-          ["Level 1", "0–149 KM", "19.9%"],
-          ["Level 2", "150–349 KM", "15.9%"],
-          ["Level 3", "350–599 KM", "13.3%"],
-          ["Level 4", "600–849 KM", "10.3%"],
-          ["Level 5", "850+ KM", "8.3%"]
-        ];
-      } else if (vehicle === "bike") {
-        if (rides <= 149) { commission = 19.9; level = "Level 1";
-        } else if (rides <= 349) { commission = 15.9; level = "Level 2";
-        } else if (rides <= 599) { commission = 13.9; level = "Level 3";
-        } else if (rides <= 849) { commission = 10.9; level = "Level 4";
-        } else { commission = 8.6; level = "Level 5"; }
-        chartData = [
-          ["Level 1", "0–149 KM", "19.9%"],
-          ["Level 2", "150–349 KM", "15.9%"],
-          ["Level 3", "350–599 KM", "13.9%"],
-          ["Level 4", "600–849 KM", "10.9%"],
-          ["Level 5", "850+ KM", "8.6%"]
-        ];
+      if(vehicle==="car"){
+        if(rides<=249){commission=19.9;level="Level 1";}
+        else if(rides<=499){commission=17.9;level="Level 2";}
+        else if(rides<=749){commission=15.9;level="Level 3";}
+        else if(rides<=999){commission=11.9;level="Level 4";}
+        else{commission=7.9;level="Level 5";}
+        chartData=[["Level 1","0–249 KM","19.9%"],["Level 2","250–499 KM","17.9%"],["Level 3","500–749 KM","15.9%"],["Level 4","750–999 KM","11.9%"],["Level 5","1000+ KM","7.9%"]];
+      }else if(vehicle==="auto"){
+        if(rides<=149){commission=19.9;level="Level 1";}
+        else if(rides<=349){commission=15.9;level="Level 2";}
+        else if(rides<=599){commission=13.3;level="Level 3";}
+        else if(rides<=849){commission=10.3;level="Level 4";}
+        else{commission=8.3;level="Level 5";}
+        chartData=[["Level 1","0–149 KM","19.9%"],["Level 2","150–349 KM","15.9%"],["Level 3","350–599 KM","13.3%"],["Level 4","600–849 KM","10.3%"],["Level 5","850+ KM","8.3%"]];
+      }else if(vehicle==="bike"){
+        if(rides<=149){commission=19.9;level="Level 1";}
+        else if(rides<=349){commission=15.9;level="Level 2";}
+        else if(rides<=599){commission=13.9;level="Level 3";}
+        else if(rides<=849){commission=10.9;level="Level 4";}
+        else{commission=8.6;level="Level 5";}
+        chartData=[["Level 1","0–149 KM","19.9%"],["Level 2","150–349 KM","15.9%"],["Level 3","350–599 KM","13.9%"],["Level 4","600–849 KM","10.9%"],["Level 5","850+ KM","8.6%"]];
       }
 
-      document.getElementById("output").innerHTML =
-        `You drive a <strong>${vehicle.toUpperCase()}</strong><br>` +
-        `Your current level is <strong>${level}</strong><br>` +
+      document.getElementById("output").innerHTML=
+        `You drive a <strong>${vehicle.toUpperCase()}</strong><br>`+
+        `Your current level is <strong>${level}</strong><br>`+
         `Your commission rate is <strong>${commission}%</strong>`;
 
-      const chart = document.getElementById("chart");
-      const chartBody = document.getElementById("chartBody");
-      chart.style.display = "block";
-      chartBody.innerHTML = "";
-      chartData.forEach((row) => {
-        const tr = document.createElement("tr");
-        row.forEach((cell) => {
-          const td = document.createElement("td");
-          td.textContent = cell;
+      const chart=document.getElementById("chart");
+      const chartBody=document.getElementById("chartBody");
+      chart.style.display="block";
+      chartBody.innerHTML="";
+      chartData.forEach(row=>{
+        const tr=document.createElement("tr");
+        row.forEach(cell=>{
+          const td=document.createElement("td");
+          td.textContent=cell;
           tr.appendChild(td);
         });
         chartBody.appendChild(tr);
       });
     }
 
-    /* ---------------- Section Switchers ---------------- */
-    function hideAllSections() {
-      document.getElementById("driver-section").style.display = "none";
-      document.getElementById("real-rides-section").style.display = "none";
-      document.getElementById("ride-logic-section").style.display = "none";
+    function hideAllSections(){
+      document.getElementById("driver-section").style.display="none";
+      document.getElementById("real-rides-section").style.display="none";
+      document.getElementById("ride-logic-section").style.display="none";
     }
-    document.getElementById("btn-driver").addEventListener("click", () => {
+    document.getElementById("btn-driver").addEventListener("click",()=>{
       hideAllSections();
-      document.getElementById("driver-section").style.display = "block";
-      window.scrollTo({ top: document.getElementById("driver-section").offsetTop - 30, behavior: "smooth" });
-      if (!window.__driversLoadedOnce) { loadDrivers(); window.__driversLoadedOnce = true; }
+      document.getElementById("driver-section").style.display="block";
+      window.scrollTo({top:document.getElementById("driver-section").offsetTop-30,behavior:"smooth"});
+      if(!window.__driversLoadedOnce){loadDrivers();window.__driversLoadedOnce=true;}
     });
-    document.getElementById("btn-real-rides").addEventListener("click", () => {
+    document.getElementById("btn-real-rides").addEventListener("click",()=>{
       hideAllSections();
-      document.getElementById("real-rides-section").style.display = "block";
-      window.scrollTo({ top: document.getElementById("real-rides-section").offsetTop - 30, behavior: "smooth" });
+      document.getElementById("real-rides-section").style.display="block";
+      window.scrollTo({top:document.getElementById("real-rides-section").offsetTop-30,behavior:"smooth"});
     });
-    document.getElementById("btn-ride-logic").addEventListener("click", () => {
+    document.getElementById("btn-ride-logic").addEventListener("click",()=>{
       hideAllSections();
-      document.getElementById("ride-logic-section").style.display = "block";
-      window.scrollTo({ top: document.getElementById("ride-logic-section").offsetTop - 30, behavior: "smooth" });
+      document.getElementById("ride-logic-section").style.display="block";
+      window.scrollTo({top:document.getElementById("ride-logic-section").offsetTop-30,behavior:"smooth"});
     });
 
-    /* ---------------- LIVE DRIVERS (from CSV) ---------------- */
-    const SHEET_CSV_URL =
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYbWyqmpkGVg098hhriuQ74toMrmD6G4pJ62ciB1GAVy1ltsZSrCkrK8UYhcS1TETotnN_FgCO8gNV/pub?gid=2020961533&single=true&output=csv";
-    const REFRESH_MS = 60000;
-
-    const $ = (sel) => document.querySelector(sel);
-    const clean = (s) => (s || "").trim().replace(/^"|"$/g, "");
-    function splitCsvRow(row) {
-      const out = []; let cur = ""; let q = false;
-      for (let i = 0; i < row.length; i++) {
-        const c = row[i];
-        if (c === '"') { q = !q; continue; }
-        if (c === "," && !q) { out.push(cur); cur = ""; continue; }
-        cur += c;
-      }
-      out.push(cur);
-      return out;
+    const SHEET_CSV_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vTYbWyqmpkGVg098hhriuQ74toMrmD6G4pJ62ciB1GAVy1ltsZSrCkrK8UYhcS1TETotnN_FgCO8gNV/pub?gid=2020961533&single=true&output=csv";
+    const REFRESH_MS=60000;
+    const $=sel=>document.querySelector(sel);
+    const clean=s=>(s||"").trim().replace(/^"|"$/g,"");
+    function splitCsvRow(row){
+      const out=[];let cur="";let q=false;
+      for(let i=0;i<row.length;i++){
+        const c=row[i];
+        if(c==='"'){q=!q;continue;}
+        if(c===","&&!q){out.push(cur);cur="";continue;}
+        cur+=c;
+      } out.push(cur); return out;
     }
-    function maskMiddle(v) {
-      v = (v || "").trim(); if (!v) return "";
-      const len = v.length; if (len <= 4) return "*".repeat(len);
-      const start = Math.min(3, Math.max(1, Math.floor(len * 0.25)));
-      const end = Math.min(2, Math.floor(len * 0.2));
-      return v.slice(0, start) + "*".repeat(Math.max(1, len - (start + end))) + v.slice(len - end);
+    function maskMiddle(v){
+      v=(v||"").trim(); if(!v) return "";
+      const len=v.length; if(len<=4) return "*".repeat(len);
+      const start=Math.min(3,Math.max(1,Math.floor(len*0.25)));
+      const end=Math.min(2,Math.floor(len*0.2));
+      return v.slice(0,start)+"*".repeat(Math.max(1,len-(start+end)))+v.slice(len-end);
     }
-    function esc(s){ return (s||"").toString().replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+    function esc(s){return (s||"").toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 
-    async function fetchCsv() {
-      const statusEl = $("#driverStatus");
-      statusEl.textContent = "Loading…";
-      const t0 = performance.now();
-      const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
-      if (!res.ok) throw new Error("Fetch failed — check CSV publish link.");
-      const txt = await res.text();
-      const rows = txt.trim().split(/\r?\n/);
-      if (rows.length <= 1) throw new Error("CSV has no data rows.");
+    async function fetchCsv(){
+      const statusEl=$("#driverStatus");
+      statusEl.textContent="Loading…";
+      const t0=performance.now();
+      const res=await fetch(SHEET_CSV_URL,{cache:"no-store"});
+      if(!res.ok) throw new Error("Fetch failed — check CSV publish link.");
+      const txt=await res.text();
+      const rows=txt.trim().split(/\r?\n/);
+      if(rows.length<=1) throw new Error("CSV has no data rows.");
 
-      const header = splitCsvRow(rows[0]).map(h => h.trim().toLowerCase());
-      const idx = {
-        time:   header.findIndex(h => /time|timestamp/.test(h)),
-        name:   header.findIndex(h => /name|full\s*name/.test(h)),
-        phone:  header.findIndex(h => /phone|mobile|contact/.test(h)),
-        vehicle:header.findIndex(h => /vehicle|reg|registration|number|plate|vehicle\s*no/.test(h)),
-        level:  header.findIndex(h => /level|tier|rank/.test(h)),
+      const header=splitCsvRow(rows[0]).map(h=>h.trim().toLowerCase());
+      const idx={
+        time:header.findIndex(h=>/time|timestamp/.test(h)),
+        name:header.findIndex(h=>/name|full\s*name/.test(h)),
+        phone:header.findIndex(h=>/phone|mobile|contact/.test(h)),
+        vehicle:header.findIndex(h=>/vehicle|reg|registration|number|plate|vehicle\s*no/.test(h)),
+        level:header.findIndex(h=>/level|tier|rank/.test(h))
       };
 
-      const data = [];
-      for (let i = 1; i < rows.length; i++) {
-        const cols = splitCsvRow(rows[i]).map(clean);
+      const data=[];
+      for(let i=1;i<rows.length;i++){
+        const cols=splitCsvRow(rows[i]).map(clean);
         data.push({
-          time:    idx.time   > -1 ? cols[idx.time]    : "",
-          name:    idx.name   > -1 ? cols[idx.name]    : "",
-          phone:   idx.phone  > -1 ? cols[idx.phone]   : "",
-          vehicle: idx.vehicle> -1 ? cols[idx.vehicle] : "",
-          level:   idx.level  > -1 ? cols[idx.level]   : ""
+          time:idx.time>-1?cols[idx.time]:"",
+          name:idx.name>-1?cols[idx.name]:"",
+          phone:idx.phone>-1?cols[idx.phone]:"",
+          vehicle:idx.vehicle>-1?cols[idx.vehicle]:"",
+          level:idx.level>-1?cols[idx.level]:""
         });
       }
 
-      if (idx.time > -1) data.sort((a, b) => (new Date(b.time)) - (new Date(a.time)));
+      if(idx.time>-1) data.sort((a,b)=>(new Date(b.time))-(new Date(a.time)));
       renderDrivers(data);
 
-      const t1 = performance.now();
-      statusEl.textContent = `Loaded ${data.length} drivers in ${(t1 - t0 | 0)} ms. Auto-refresh ${REFRESH_MS/1000}s.`;
+      const t1=performance.now();
+      statusEl.textContent=`Loaded ${data.length} drivers in ${ (t1 - t0|0) } ms. Auto-refresh ${REFRESH_MS/1000}s.`;
     }
 
-    function renderDrivers(data) {
-      const container = $("#driverContainer");
-      const summary = $("#driverSummary");
-      container.innerHTML = "";
-      summary.textContent = `Total drivers: ${data.length}`;
-
-      data.forEach((d, i) => {
-        const box = document.createElement("div");
-        box.className = "driver-oval";
-        box.innerHTML = `
-          <div class="driver-badge">Driver ${i + 1}</div>
+    function renderDrivers(data){
+      const container=$("#driverContainer");
+      const summary=$("#driverSummary");
+      container.innerHTML="";
+      summary.textContent=`Total drivers: ${data.length}`;
+      data.forEach((d,i)=>{
+        const box=document.createElement("div");
+        box.className="driver-oval";
+        box.innerHTML=`
+          <div class="driver-badge">Driver ${i+1}</div>
           <div class="driver-lines">
-            <div class="driver-name">${esc(d.name || "—")} <span class="driver-level">• ${esc(d.level || "Level ?")}</span></div>
+            <div class="driver-name">${esc(d.name||"—")} <span class="driver-level">• ${esc(d.level||"Level ?")}</span></div>
             <div class="driver-line">Phone: <span class="blurred">${esc(maskMiddle(d.phone))}</span></div>
             <div class="driver-line">Vehicle: <span class="blurred">${esc(maskMiddle(d.vehicle))}</span></div>
-            <div class="driver-time">${esc(d.time || "")}</div>
-          </div>
-        `;
+            <div class="driver-time">${esc(d.time||"")}</div>
+          </div>`;
         container.appendChild(box);
       });
     }
 
-    async function loadDrivers(){ try { await fetchCsv(); } catch (e) { $("#driverStatus").textContent = e.message || "Failed to load drivers."; } }
+    async function loadDrivers(){ try{ await fetchCsv(); } catch(e){ $("#driverStatus").textContent=e.message||"Failed to load drivers."; } }
 
-    // Auto-refresh every 60s while the page is open (only when driver section visible)
-    setInterval(() => {
-      const visible = document.getElementById("driver-section").style.display !== "none";
-      if (visible) loadDrivers();
-    }, REFRESH_MS);
+    setInterval(()=>{
+      const visible=document.getElementById("driver-section").style.display!=="none";
+      if(visible) loadDrivers();
+    },REFRESH_MS);
   </script>
 </body>
-  </html>
+            </html>
