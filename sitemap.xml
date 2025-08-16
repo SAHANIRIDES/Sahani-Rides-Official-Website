@@ -1,18 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://sahanirides.com/</loc>
-    <lastmod>2025-08-15</lastmod>
+    <lastmod>2025-08-16</lastmod>
     <priority>1.00</priority>
   </url>
+
   <url>
-    <loc>https://sahanirides.com/about</loc>
-    <lastmod>2025-08-15</lastmod>
+    <loc>https://sahanirides.com/about/</loc>
+    <lastmod>2025-08-16</lastmod>
     <priority>0.80</priority>
   </url>
+
   <url>
-    <loc>https://sahanirides.com/contact</loc>
-    <lastmod>2025-08-15</lastmod>
+    <loc>https://sahanirides.com/contact/</loc>
+    <lastmod>2025-08-16</lastmod>
     <priority>0.80</priority>
   </url>
+
+  <!-- Social Profiles -->
+  <url>
+    <loc>https://www.linkedin.com/in/ansh-sahani-575a29295</loc>
+    <lastmod>2025-08-16</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://www.facebook.com/share/1CR8EvEe2M/</loc>
+    <lastmod>2025-08-16</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://x.com/SahaniRides</loc>
+    <lastmod>2025-08-16</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <url>
+    <loc>https://www.instagram.com/sahanirides</loc>
+    <lastmod>2025-08-16</lastmod>
+    <priority>0.50</priority>
+  </url>
+
 </urlset>
