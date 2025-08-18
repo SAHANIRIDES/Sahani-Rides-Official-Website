@@ -14,6 +14,7 @@ To make travel safe, affordable, and driver-friendly by:
 ---
 
 ## 📌 Key Facts
+
 - **Full Name:** Sahani Rides  
 - **Founded By:** Ansh Sahani  
 - **Year Founded:** 2025  
@@ -36,7 +37,8 @@ To make travel safe, affordable, and driver-friendly by:
 - **X (Twitter):** https://x.com/SahaniRides  
 - **LinkedIn:** https://www.linkedin.com/in/ansh-sahani-575a29295  
 - **Facebook:** https://www.facebook.com/share/1H3z1WDBpn/
-
+- **Blog:**
+https://sahanirides.wordpress.com/blog/
 ---
 
 ## 📩 Contact
