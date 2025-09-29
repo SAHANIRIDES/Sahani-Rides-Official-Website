@@ -156,6 +156,13 @@
     .driver-btn{ background:var(--brand); margin-top:8px; }
 
     .status-note{ text-align:center; font-size:12px; color:var(--muted); margin:8px 0 0; }
+
+    /* ===== Founder’s Gallery styles ===== */
+    #founders-gallery { margin-top: 30px; }
+    #founders-gallery h2 { color: var(--brand); }
+    #fg-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    #fg-grid img { width:100%; height:auto; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08); background:#f6f8ff; }
+    #fg-status { text-align:center; font-size:12px; color:#678; margin-top:10px; }
   </style>
 </head>
 <body>
@@ -165,6 +172,7 @@
       <a href="#calculator">Commission Calculator</a> ·
       <a href="#driver-section">Driver Section</a> ·
       <a href="#ride-logic-section">Ride Logic</a> ·
+      <a href="#founders-gallery">Founder’s Gallery</a> ·
       <a href="#about-us">About Us</a>
     </nav>
 
@@ -179,6 +187,7 @@
           <tr><td>Commission Calculator</td><td><a href="#calculator">Go to Calculator</a></td></tr>
           <tr><td>Driver Section</td><td><a href="#driver-section">View Drivers</a></td></tr>
           <tr><td>Ride Logic</td><td><a href="#ride-logic-section">See How It Works</a></td></tr>
+          <tr><td>Founder’s Gallery</td><td><a href="#founders-gallery">Open Gallery</a></td></tr>
           <tr><td>About Us</td><td><a href="#about-us">Learn About Sahani Rides</a></td></tr>
         </tbody>
       </table>
@@ -280,6 +289,16 @@
         </p>
       </div>
     </div>
+
+    <!-- ===== Founder’s Gallery (auto-updating) ===== -->
+    <section id="founders-gallery">
+      <h2>Founder’s Gallery</h2>
+      <p style="text-align:center; color:#456; margin:6px 0 14px;">
+        Photos of <strong>Ansh Sahani</strong> & Sahani Rides in the field.
+      </p>
+      <div id="fg-grid"></div>
+      <div id="fg-status">Loading photos…</div>
+    </section>
 
     <!-- Footer: founder + socials + About Us -->
     <div class="footer">
@@ -545,6 +564,51 @@
       const visible = document.getElementById("driver-section").style.display !== "none";
       if (visible) loadDrivers();
     }, REFRESH_MS);
+  </script>
+
+  <!-- ===== Founder’s Gallery loader (GitHub Contents API) ===== -->
+  <script>
+    // TODO: set these to your GitHub repo that contains the /photos folder
+    const GITHUB_USER  = "YOUR_GITHUB_USERNAME";
+    const GITHUB_REPO  = "YOUR_REPO_NAME";
+    const GITHUB_BRANCH = "main";       // or "gh-pages" if you use that
+    const PHOTOS_DIR    = "photos";     // folder you already created
+
+    (async function loadFoundersGallery(){
+      const status = document.getElementById("fg-status");
+      const grid   = document.getElementById("fg-grid");
+      if (!status || !grid) return;
+
+      function nameToAlt(n){
+        return n.replace(/\.[^.]+$/,"").replace(/[-_]+/g," ").trim();
+      }
+
+      try {
+        const api = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${PHOTOS_DIR}?ref=${GITHUB_BRANCH}`;
+        const res = await fetch(api, { headers: { "Accept": "application/vnd.github+json" }});
+        if (!res.ok) throw new Error(`GitHub API error ${res.status}`);
+        const files = await res.json();
+
+        const imgs = (files || []).filter(f => f.type === "file" && /\.(jpe?g|png|webp|gif)$/i.test(f.name));
+        if (!imgs.length) { status.textContent = "No photos uploaded yet."; return; }
+
+        // Sort reverse by filename so newest (by your naming) appears first
+        imgs.sort((a,b)=> b.name.localeCompare(a.name, undefined, { numeric:true, sensitivity:"base" }));
+
+        const frag = document.createDocumentFragment();
+        imgs.forEach(f=>{
+          const img = document.createElement("img");
+          img.src   = f.download_url;     // raw file URL served by GitHub
+          img.alt   = nameToAlt(f.name);  // SEO-friendly alt
+          img.loading = "lazy";
+          frag.appendChild(img);
+        });
+        grid.appendChild(frag);
+        status.textContent = `Loaded ${imgs.length} photos`;
+      } catch (err){
+        status.textContent = "Could not load photos";
+      }
+    })();
   </script>
 </body>
   </html>
