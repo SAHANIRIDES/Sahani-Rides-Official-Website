@@ -115,7 +115,7 @@
     .top-buttons { display:flex; justify-content:center; gap:10px; margin:12px 0 20px; flex-wrap:wrap; }
     .top-buttons button { background:var(--brand); color:#fff; border:none; padding:8px 16px; border-radius:50px; cursor:pointer; font-weight:600; font-size:.9rem; min-width:110px; transition:background-color .3s ease; }
     .top-buttons button:hover{ background:var(--brand-dark); }
-    #driver-section, #real-rides-section, #ride-logic-section { margin-top: 30px; display: none; }
+    #driver-section, #real-rides-section, #ride-logic-section, #founders-gallery-section { margin-top: 30px; display: none; }
 
     /* Driver list (oval cards) */
     .driver-details-container{ display:flex; flex-direction:column; gap:12px; }
@@ -157,12 +157,26 @@
 
     .status-note{ text-align:center; font-size:12px; color:var(--muted); margin:8px 0 0; }
 
-    /* ===== Founder’s Gallery styles ===== */
-    #founders-gallery { margin-top: 30px; }
-    #founders-gallery h2 { color: var(--brand); }
-    #fg-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
-    #fg-grid img { width:100%; height:auto; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.08); background:#f6f8ff; }
-    #fg-status { text-align:center; font-size:12px; color:#678; margin-top:10px; }
+    /* ====== Founders Gallery ====== */
+    #galleryGrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:12px; margin-top:14px; }
+    .g-fig{ margin:0; background:var(--soft); border:1px solid var(--soft-border); border-radius:10px; padding:8px; box-shadow:0 4px 12px rgba(30,78,176,.05); }
+    .g-img{ width:100%; height:100px; object-fit:cover; border-radius:8px; cursor:pointer; }
+    .g-cap{ font-size:12px; color:#345; margin-top:6px; text-align:center; }
+    .g-row{ display:flex; gap:8px; justify-content:center; margin-top:8px; }
+    .g-btn{ padding:6px 10px; border-radius:8px; border:1px solid var(--soft-border); background:#fff; color:#123; font-weight:700; cursor:pointer; }
+    .g-btn:hover{ background:#f0f6ff; }
+
+    /* Lightbox */
+    .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:9999; padding:16px; }
+    .lightbox-inner{ background:#fff; border-radius:12px; max-width:90vw; max-height:90vh; padding:10px; box-shadow:0 6px 24px rgba(0,0,0,.3); }
+    .lightbox-img{ max-width:88vw; max-height:70vh; display:block; border-radius:10px; margin:auto; }
+    .lightbox-top{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+    .lb-cap{ font-weight:800; color:#123; font-size:14px; text-align:left; }
+    .lb-actions{ display:flex; gap:8px; }
+    .lb-btn{ padding:6px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:800; }
+    .lb-download{ background:var(--brand); color:#fff; }
+    .lb-close{ background:#eee; }
+    .lb-close:hover{ background:#ddd; }
   </style>
 </head>
 <body>
@@ -172,7 +186,7 @@
       <a href="#calculator">Commission Calculator</a> ·
       <a href="#driver-section">Driver Section</a> ·
       <a href="#ride-logic-section">Ride Logic</a> ·
-      <a href="#founders-gallery">Founder’s Gallery</a> ·
+      <a href="#founders-gallery-section">Founders Gallery</a> ·
       <a href="#about-us">About Us</a>
     </nav>
 
@@ -187,7 +201,7 @@
           <tr><td>Commission Calculator</td><td><a href="#calculator">Go to Calculator</a></td></tr>
           <tr><td>Driver Section</td><td><a href="#driver-section">View Drivers</a></td></tr>
           <tr><td>Ride Logic</td><td><a href="#ride-logic-section">See How It Works</a></td></tr>
-          <tr><td>Founder’s Gallery</td><td><a href="#founders-gallery">Open Gallery</a></td></tr>
+          <tr><td>Founders Gallery</td><td><a href="#founders-gallery-section">Open Gallery</a></td></tr>
           <tr><td>About Us</td><td><a href="#about-us">Learn About Sahani Rides</a></td></tr>
         </tbody>
       </table>
@@ -202,6 +216,7 @@
       <button id="btn-driver">Driver Section</button>
       <button id="btn-real-rides">Real Rides</button>
       <button id="btn-ride-logic">Ride Logic</button>
+      <button id="btn-founders">Founders Gallery</button>
     </div>
 
     <!-- Calculator (H2, not H1) -->
@@ -290,15 +305,27 @@
       </div>
     </div>
 
-    <!-- ===== Founder’s Gallery (auto-updating) ===== -->
-    <section id="founders-gallery">
-      <h2>Founder’s Gallery</h2>
-      <p style="text-align:center; color:#456; margin:6px 0 14px;">
-        Photos of <strong>Ansh Sahani</strong> & Sahani Rides in the field.
-      </p>
-      <div id="fg-grid"></div>
-      <div id="fg-status">Loading photos…</div>
-    </section>
+    <!-- Founders Gallery Section -->
+    <div id="founders-gallery-section">
+      <h2 style="color:#1e4eb0; text-align:center;">Founders Gallery</h2>
+      <p style="text-align:center; color:#456; margin:0 0 8px;">All photos auto-loaded from <code>photos/</code> folder of your public GitHub repo.</p>
+      <div id="galleryStatus" class="status-note">Loading gallery…</div>
+      <div id="galleryGrid" aria-live="polite"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <div class="lightbox-inner">
+        <div class="lightbox-top">
+          <div id="lb-cap" class="lb-cap"></div>
+          <div class="lb-actions">
+            <a id="lb-download" class="lb-btn lb-download" href="#" download>Download</a>
+            <button id="lb-close" class="lb-btn lb-close" type="button">Close</button>
+          </div>
+        </div>
+        <img id="lb-img" class="lightbox-img" src="" alt="">
+      </div>
+    </div>
 
     <!-- Footer: founder + socials + About Us -->
     <div class="footer">
@@ -452,6 +479,7 @@
       document.getElementById("driver-section").style.display = "none";
       document.getElementById("real-rides-section").style.display = "none";
       document.getElementById("ride-logic-section").style.display = "none";
+      document.getElementById("founders-gallery-section").style.display = "none";
     }
     document.getElementById("btn-driver").addEventListener("click", () => {
       hideAllSections();
@@ -468,6 +496,12 @@
       hideAllSections();
       document.getElementById("ride-logic-section").style.display = "block";
       window.scrollTo({ top: document.getElementById("ride-logic-section").offsetTop - 30, behavior: "smooth" });
+    });
+    document.getElementById("btn-founders").addEventListener("click", () => {
+      hideAllSections();
+      document.getElementById("founders-gallery-section").style.display = "block";
+      window.scrollTo({ top: document.getElementById("founders-gallery-section").offsetTop - 30, behavior: "smooth" });
+      if (!window.__galleryLoadedOnce) { loadFoundersGallery(); window.__galleryLoadedOnce = true; }
     });
 
     /* ---------------- LIVE DRIVERS (from CSV) ---------------- */
@@ -564,51 +598,80 @@
       const visible = document.getElementById("driver-section").style.display !== "none";
       if (visible) loadDrivers();
     }, REFRESH_MS);
-  </script>
 
-  <!-- ===== Founder’s Gallery loader (GitHub Contents API) ===== -->
-  <script>
-    // TODO: set these to your GitHub repo that contains the /photos folder
-    const GITHUB_USER  = "YOUR_GITHUB_USERNAME";
-    const GITHUB_REPO  = "YOUR_REPO_NAME";
-    const GITHUB_BRANCH = "main";       // or "gh-pages" if you use that
-    const PHOTOS_DIR    = "photos";     // folder you already created
+    /* ---------------- FOUNDERS GALLERY (GitHub /photos) ---------------- */
+    const GITHUB_USER  = "YOUR_GITHUB_USERNAME";   // <<<<<< SET ME
+    const GITHUB_REPO  = "YOUR_REPO_NAME";         // <<<<<< SET ME
+    const GALLERY_PATH = "photos";
+    const GALLERY_REFRESH_MS = 90000;
 
-    (async function loadFoundersGallery(){
-      const status = document.getElementById("fg-status");
-      const grid   = document.getElementById("fg-grid");
-      if (!status || !grid) return;
+    function titleFromFilename(name){
+      const base = (name||"").replace(/\.[^.]+$/,"");
+      const clean = base.replace(/^[\d\-_.]+/,"").replace(/[_\-]+/g," ").trim();
+      return clean ? clean.replace(/\b\w/g, c => c.toUpperCase()) : base;
+    }
 
-      function nameToAlt(n){
-        return n.replace(/\.[^.]+$/,"").replace(/[-_]+/g," ").trim();
+    function openLightbox(src, cap){
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lb-img').src = src;
+      document.getElementById('lb-img').alt = cap;
+      document.getElementById('lb-cap').textContent = cap;
+      document.getElementById('lb-download').href = src;
+      lb.style.display = 'flex';
+    }
+    document.getElementById('lb-close').addEventListener('click', ()=>{ document.getElementById('lightbox').style.display='none'; });
+    document.getElementById('lightbox').addEventListener('click', (e)=>{ if(e.target.id==='lightbox'){ e.currentTarget.style.display='none'; } });
+
+    async function loadFoundersGallery(){
+      const status = document.getElementById('galleryStatus');
+      const grid   = document.getElementById('galleryGrid');
+      grid.innerHTML = "";
+      status.textContent = "Loading gallery…";
+
+      if(!GITHUB_USER || !GITHUB_REPO){
+        status.textContent = "Set GITHUB_USER and GITHUB_REPO in the script.";
+        return;
       }
 
       try {
-        const api = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${PHOTOS_DIR}?ref=${GITHUB_BRANCH}`;
-        const res = await fetch(api, { headers: { "Accept": "application/vnd.github+json" }});
-        if (!res.ok) throw new Error(`GitHub API error ${res.status}`);
+        const api = `https://api.github.com/repos/${encodeURIComponent(GITHUB_USER)}/${encodeURIComponent(GITHUB_REPO)}/contents/${encodeURIComponent(GALLERY_PATH)}`;
+        const res = await fetch(api, { cache: 'no-store' });
+        if(!res.ok) throw new Error("GitHub API error. Make sure repo is public and /photos exists.");
         const files = await res.json();
 
-        const imgs = (files || []).filter(f => f.type === "file" && /\.(jpe?g|png|webp|gif)$/i.test(f.name));
-        if (!imgs.length) { status.textContent = "No photos uploaded yet."; return; }
+        const images = (Array.isArray(files) ? files : []).filter(f => f && f.type === "file" && /\.(jpe?g|png|webp|gif)$/i.test(f.name));
+        if(images.length===0){ status.textContent = "No images found in /photos."; return; }
 
-        // Sort reverse by filename so newest (by your naming) appears first
-        imgs.sort((a,b)=> b.name.localeCompare(a.name, undefined, { numeric:true, sensitivity:"base" }));
+        // newest first (by name if you add dates, else as-is)
+        images.sort((a,b)=> a.name<b.name?1:-1);
 
-        const frag = document.createDocumentFragment();
-        imgs.forEach(f=>{
-          const img = document.createElement("img");
-          img.src   = f.download_url;     // raw file URL served by GitHub
-          img.alt   = nameToAlt(f.name);  // SEO-friendly alt
-          img.loading = "lazy";
-          frag.appendChild(img);
+        images.forEach(f=>{
+          const cap = titleFromFilename(f.name);
+          const fig = document.createElement('figure'); fig.className = 'g-fig';
+          const img = document.createElement('img'); img.className='g-img'; img.src = f.download_url; img.alt = cap;
+          img.addEventListener('click', ()=> openLightbox(f.download_url, cap));
+          const cc = document.createElement('figcaption'); cc.className='g-cap'; cc.textContent = cap;
+          const row = document.createElement('div'); row.className='g-row';
+          const viewBtn = document.createElement('button'); viewBtn.className='g-btn'; viewBtn.textContent='View';
+          viewBtn.addEventListener('click', ()=> openLightbox(f.download_url, cap));
+          const dl = document.createElement('a'); dl.className='g-btn'; dl.textContent='Download'; dl.href=f.download_url; dl.download = f.name;
+          row.appendChild(viewBtn); row.appendChild(dl);
+          fig.appendChild(img); fig.appendChild(cc); fig.appendChild(row);
+          grid.appendChild(fig);
         });
-        grid.appendChild(frag);
-        status.textContent = `Loaded ${imgs.length} photos`;
-      } catch (err){
-        status.textContent = "Could not load photos";
+
+        status.textContent = `Loaded ${images.length} photos. Auto-refresh ${GALLERY_REFRESH_MS/1000}s.`;
+      } catch(err){
+        status.textContent = err.message || "Failed to load gallery.";
       }
-    })();
+    }
+
+    // Auto-refresh gallery when section visible
+    setInterval(()=>{
+      const visible = document.getElementById("founders-gallery-section").style.display !== "none";
+      if(visible) loadFoundersGallery();
+    }, GALLERY_REFRESH_MS);
+
   </script>
 </body>
-  </html>
+</html>
